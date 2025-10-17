@@ -1,0 +1,114 @@
+:root {
+  --rps-white: #ffffff;
+  --rps-border-width: 3px;
+  --rps-border-color: rgba(255, 255, 255, 0.29);
+  --rps-border-radius: 15px;
+  --rps-background-gradient: radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%);
+  --rps-background: #131537;
+
+  --rps-score-background: linear-gradient(0deg, #F3F3F3 0%, #FFFFFF 100%);
+  --rps-font-family: 'Barlow Semi Condensed', sans-serif;
+
+  --rps-rock-background: rgba(219, 46, 77, 1);
+  --rps-paper-background: rgba(70, 100, 244, 1);
+  --rps-scissors-background: rgba(235, 159, 14, 1);
+}
+
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--rps-background-gradient);
+  --section-gap: 160px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--rps-background-gradient);
+  background: var(--rps-background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  font-family: var(--rps-font-family);
+  text-transform: uppercase;
+  display: flex;
+}
+
+.lead {
+  border: var(--rps-border-width) solid var(--rps-border-color);
+  border-radius: var(--rps-border-radius);
+  width: 100%;
+  max-width: 700px;
+  min-width: 700px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+
+  &-score {
+    background: var(--rps-score-background);
+    width: 150px;
+    height: 114px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-family: Barlow Semi Condensed;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 100%;
+      letter-spacing: 2.5px;
+      color: rgba(42, 69, 194, 1);
+      text-align: center;
+    }
+
+    h1 {
+      font-family: Barlow Semi Condensed;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 64px;
+      letter-spacing: 0px;
+      text-align: center;
+      color: rgba(86, 84, 104, 1);
+    }
+
+  }
+}
+
+.rps-wrapper {
+  background: var(--rps-button-background);
+  width: 198;
+  height: 194;
+}
