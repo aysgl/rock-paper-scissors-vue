@@ -127,6 +127,7 @@ body {
     line-height: 1;
     letter-spacing: 0px;
     text-align: center;
+    margin-bottom: calc(var(--spacing-sm) / 2);
   }
 
   &-button {
@@ -154,7 +155,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    gap: var(--spacing-md);
     position: relative;
     z-index: 10;
     margin-top: clamp(40px, 8vw, 70px);
@@ -273,7 +274,7 @@ body {
     text-align: center;
     gap: var(--spacing-sm);
 
-    // Mobile first: 2 columns with result below
+    /* Mobile first: 2 columns with result below */
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "you house"
@@ -295,13 +296,13 @@ body {
       margin: 0 auto;
       margin-top: clamp(20px, 5vw, 50px);
 
-      // Mobile: scale 0.9
+      /* Mobile: scale 0.9 */
       transform: scale(0.9);
     }
   }
 }
 
-// Tablet: 640px+
+/* Tablet: 640px+ */
 @media (min-width: 640px) {
   .rps-two {
     gap: var(--spacing-md);
@@ -312,17 +313,24 @@ body {
   }
 }
 
-// Desktop: 1024px+
+/* Desktop: 1024px+ (3 columns with result in center) */
 @media (min-width: 1024px) {
   .rps-two {
     max-width: 850px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: none;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-areas: "you result house" !important;
 
-    .slide-in-right,
-    .slide-in-left,
+    .slide-in-right {
+      grid-area: you;
+    }
+
+    .slide-in-left {
+      grid-area: house;
+    }
+
     .rps-center {
-      grid-area: auto;
+      grid-area: result;
+      margin-top: 100px;
     }
 
     &-item {
@@ -335,7 +343,7 @@ body {
   }
 }
 
-// Large Desktop: 1280px+
+/* Large Desktop: 1280px+ */
 @media (min-width: 1280px) {
   .rps-two {
     &-item {
@@ -344,7 +352,7 @@ body {
   }
 }
 
-// Large desktop: 1440px+
+/* Large desktop: 1440px+ */
 @media (min-width: 1440px) {
   :root {
     --item-size: 198px;
@@ -377,7 +385,7 @@ body {
   animation: pulse-shadow 2s infinite;
 }
 
-// Fade transition (for result only)
+/* Fade transition (for result only) */
 .fade-enter-active {
   transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
 }
@@ -396,7 +404,7 @@ body {
   transform: scale(0.8);
 }
 
-// Initial slide animations (CSS animation, not transition)
+/* Initial slide animations (CSS animation, not transition) */
 @keyframes slideInRight {
   from {
     opacity: 0;

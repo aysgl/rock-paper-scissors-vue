@@ -88,16 +88,15 @@ function handlePick(choice: Choice | null) {
         </div>
 
         <!-- Result -->
-        <Transition name="fade" mode="out-in">
-          <div class="rps-center" v-if="result" key="result">
+        <div class="rps-center">
+          <div v-if="result">
             <h1 class="rps-lead">
               {{ result === 'win' ? 'You Win' : result === 'lose' ? 'You Lose' : 'Tie' }}
             </h1>
 
             <button class="rps-button" @click="playAgain">Play Again</button>
           </div>
-          <div v-else key="placeholder" class="rps-center"></div>
-        </Transition>
+        </div>
 
         <!-- The House Picked -->
         <div class="slide-in-left">
