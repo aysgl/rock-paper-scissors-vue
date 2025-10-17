@@ -1,5 +1,6 @@
 :root {
   --rps-white: #ffffff;
+  --rps-black: #000000;
   --rps-border-width: 3px;
   --rps-border-color: rgba(255, 255, 255, 0.29);
   --rps-border-radius: 15px;
@@ -33,7 +34,7 @@ body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--rps-background-gradient);
-  background: var(--rps-background);
+  // background: var(--rps-background);
   transition:
     color 0.5s,
     background-color 0.5s;
@@ -108,7 +109,58 @@ body {
 }
 
 .rps-wrapper {
-  background: var(--rps-button-background);
-  width: 198;
-  height: 194;
+  position: relative;
+  width: 500px;
+  height: 450px;
+  margin: 50px auto;
+
+  &-item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 198px;
+    height: 198px;
+    background: linear-gradient(0deg, #F3F3F3 0%, #DADADA 98.34%);
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &-item.paper {
+    top: 0;
+    left: 0;
+    border: 20px solid var(--rps-paper-background);
+    box-shadow: 0 5px 0px 3px #2A45C2, inset 0px 5px 0 3px #BABFD4;
+  }
+
+  &-item.scissors {
+    top: 0;
+    right: 0;
+    border: 20px solid var(--rps-scissors-background);
+    box-shadow: 0 5px 0px 3px #C76C1B, inset 0px 5px 0 3px #BABFD4;
+  }
+
+  &-item.rock {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 20px solid var(--rps-rock-background);
+    box-shadow: 0 5px 0px 3px #9D1634, inset 0px 5px 0 3px #BABFD4;
+
+    &:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+  }
+
+  &-triangle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+  }
 }
