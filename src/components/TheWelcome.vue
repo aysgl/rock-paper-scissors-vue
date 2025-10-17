@@ -4,6 +4,8 @@ import RPSWrapper from './RPSWrapper.vue'
 </script>
 
 <template>
-  <LeadCard />
-  <RPSWrapper />
+  <div class="welcome">
+    <LeadCard />
+    <RPSWrapper />
+  </div>
 </template>

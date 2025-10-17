@@ -13,7 +13,7 @@
       clip-rule="evenodd"
       d="M292.5 7.5C292.5 7.5 0.895138 7.5 5.57388 7.5C10.2526 7.5 153.466 261.5 153.466 261.5L292.5 7.5Z"
       stroke="black"
-      stroke-width="15"
+      stroke-width="var(--rps-triangle-width)"
     />
   </svg>
 </template>

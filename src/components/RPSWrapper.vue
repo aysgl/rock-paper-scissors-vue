@@ -72,8 +72,6 @@ function handlePick(choice: Choice | null) {
       <div v-else key="step2" class="rps-two">
         <!-- You Picked -->
         <div class="slide-in-right">
-          <h2 class="rps-title">You Picked</h2>
-          <span style="font-size: 12px">{{ userChoice }}</span>
           <div :class="['rps-two-item', userChoice, result === 'win' ? 'active' : '']">
             <component
               :is="
@@ -85,6 +83,8 @@ function handlePick(choice: Choice | null) {
               "
             />
           </div>
+          <h2 class="rps-title">You Picked</h2>
+          <span style="font-size: 12px">{{ userChoice }}</span>
         </div>
 
         <!-- Result -->
@@ -100,8 +100,6 @@ function handlePick(choice: Choice | null) {
 
         <!-- The House Picked -->
         <div class="slide-in-left">
-          <h2 class="rps-title">The House Picked</h2>
-          <span style="font-size: 12px">{{ houseChoice }}</span>
           <div :class="['rps-two-item', houseChoice, result === 'lose' ? 'active' : '']">
             <component
               :is="
@@ -113,6 +111,8 @@ function handlePick(choice: Choice | null) {
               "
             />
           </div>
+          <h2 class="rps-title">The House Picked</h2>
+          <span style="font-size: 12px">{{ houseChoice }}</span>
         </div>
       </div>
     </Transition>

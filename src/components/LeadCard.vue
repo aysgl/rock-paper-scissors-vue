@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import TextSvg from './svg/TextSvg.vue'
+import LogoSvg from './svg/LogoSvg.vue'
 </script>
 
 <template>
   <div class="lead">
-    <TextSvg />
+    <div class="lead-logo">
+      <LogoSvg />
+    </div>
 
     <div class="lead-score">
       <span>Score</span>

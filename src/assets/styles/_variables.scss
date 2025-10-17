@@ -1,0 +1,48 @@
+:root {
+  /* Colors */
+  --rps-white: #ffffff;
+  --rps-black: #000000;
+  --rps-rock-background: rgba(219, 46, 77, 1);
+  --rps-paper-background: rgba(70, 100, 244, 1);
+  --rps-scissors-background: rgba(235, 159, 14, 1);
+  --rps-triangle-width: clamp(25px, 2vw, 30px);
+  --lead-logo-width: clamp(110px, 12vw, 260px);
+
+  /* Static values */
+  --rps-border-width: 3px;
+  --rps-border-color: rgba(255, 255, 255, 0.29);
+  --rps-border-radius: 15px;
+  --rps-background-gradient: radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%);
+  --rps-background: #131537;
+  --rps-shadow-color: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  --rps-score-background: linear-gradient(0deg, #F3F3F3 0%, #FFFFFF 100%);
+  --rps-font-family: 'Barlow Semi Condensed', sans-serif;
+
+  /* Responsive sizes (mobile-first with clamp) */
+  --spacing-xs: clamp(0.75rem, 2vw, 1.25rem);
+  --spacing-sm: clamp(1rem, 3vw, 2rem);
+  --spacing-md: clamp(1.5rem, 4vw, 3rem);
+  --spacing-lg: clamp(2rem, 4vw, 4rem);
+  --spacing-lead: clamp(2rem, calc(10rem - 5vw), 12rem);
+
+  /* Font sizes */
+  --font-xs: clamp(10px, 2vw, 12px);
+  --font-sm: clamp(12px, 2.5vw, 16px);
+  --font-md: clamp(18px, 3.5vw, 24px);
+  --font-lg: clamp(36px, 6vw, 56px);
+  --font-xl: clamp(42px, 8vw, 64px);
+
+  /* Component sizes */
+  --item-size: clamp(130px, 25vw, 198px);
+  --item-border: clamp(12px, 2.5vw, 20px);
+  --lead-height: clamp(90px, 15vw, 150px);
+  --score-width: clamp(90px, 15vw, 150px);
+  --score-height: clamp(90px, 15vw, 114px);
+}
+
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--rps-background-gradient);
+  --section-gap: 160px;
+}
