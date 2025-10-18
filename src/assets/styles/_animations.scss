@@ -1,57 +1,24 @@
-/* Fade transition (for result only) */
-.fade-enter-active {
-  transition: opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s;
-}
+.fade {
+  &-enter-active {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
 
-.fade-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
+  &-leave-active {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-.fade-enter-from {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-.fade-leave-to {
-  opacity: 0;
-  transform: scale(0.8);
-}
-
-/* Initial slide animations (CSS animation, not transition) */
-@keyframes slideInRight {
-  from {
+  &-enter-from {
     opacity: 0;
-    transform: translateX(100px);
+    transform: scale(0.95);
   }
 
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInLeft {
-  from {
+  &-leave-to {
     opacity: 0;
-    transform: translateX(-100px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
+    transform: scale(0.95);
   }
 }
 
-.slide-in-right {
-  animation: slideInRight 0.6s ease-out;
-}
 
-.slide-in-left {
-  animation: slideInLeft 0.6s ease-out;
-}
-
-
-/* Pulse animations - 3 waves (preserving original shadows) */
 @keyframes pulse-shadow-paper {
   0% {
     box-shadow:
@@ -75,8 +42,8 @@
     box-shadow:
       0 5px 0px 3px #2A45C2,
       inset 0px 5px 0 3px #BABFD4,
-      0 0 0 0 60px rgba(255, 255, 255, 0),
-      0 0 0 0 60px rgba(255, 255, 255, 0),
+      0 0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
@@ -104,8 +71,8 @@
     box-shadow:
       0 5px 0px 3px #C76C1B,
       inset 0px 5px 0 3px #BABFD4,
-      0 0 0 0 60px rgba(255, 255, 255, 0),
-      0 0 0 0 60px rgba(255, 255, 255, 0),
+      0 0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
@@ -133,19 +100,21 @@
     box-shadow:
       0 5px 0px 3px #9D1634,
       inset 0px 5px 0 3px #BABFD4,
+      0 0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
 
 /* Apply specific animation based on item type */
-.rps-two-item.paper.active {
+.game__item--paper.active {
   animation: pulse-shadow-paper 1.5s ease-in-out infinite;
 }
 
-.rps-two-item.scissors.active {
+.game__item--scissors.active {
   animation: pulse-shadow-scissors 1.5s ease-in-out infinite;
 }
 
-.rps-two-item.rock.active {
+.game__item--rock.active {
   animation: pulse-shadow-rock 1.5s ease-in-out infinite;
 }

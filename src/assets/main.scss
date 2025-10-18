@@ -5,11 +5,15 @@
 @use './styles/base';
 
 // Components
-@use './styles/components/rps-wrapper';
-@use './styles/components/lead';
+@use './styles/components/game';
+@use './styles/components/score';
+@use './styles/components/rules';
 
 // Animations
 @use './styles/animations';
+
+// Fonts
+@use './styles/fonts';
 
 #app {
   width: 100%;

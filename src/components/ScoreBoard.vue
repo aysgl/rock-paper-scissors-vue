@@ -3,12 +3,12 @@ import LogoSvg from './svg/LogoSvg.vue'
 </script>
 
 <template>
-  <div class="lead">
-    <div class="lead-logo">
+  <div class="score">
+    <div class="score__logo">
       <LogoSvg />
     </div>
 
-    <div class="lead-score">
+    <div class="score__score">
       <span>Score</span>
       <h1>12</h1>
     </div>

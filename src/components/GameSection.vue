@@ -28,7 +28,7 @@ function handlePick(choice: Choice | null) {
 
   const interval = setInterval(() => {
     houseChoice.value = getRandom()
-  }, 400)
+  }, 100)
 
   setTimeout(() => {
     clearInterval(interval)
@@ -44,36 +44,39 @@ function handlePick(choice: Choice | null) {
     } else {
       result.value = 'lose'
     }
-  }, 1000)
+  }, 2000)
 }
 </script>
 
 <template>
-  <div class="rps">
+  <div class="game">
     <Transition name="fade" mode="out-in">
       <!-- Step 1: Pick -->
-      <div v-if="!userChoice" key="step1" class="rps-one">
-        <div class="rps-one-triangle">
+      <div v-if="!userChoice" key="step1" class="game__one">
+        <div class="game__triangle">
           <TriangleSvg />
         </div>
 
-        <div class="rps-one-item paper" @click="handlePick('paper')">
-          <PaperSvg />
+        <div class="game__item game__item--paper" @click="handlePick('paper')">
+          <PaperSvg color="#3B4262" />
         </div>
-        <div class="rps-one-item scissors" @click="handlePick('scissors')">
-          <ScissorsSvg />
+        <div class="game__item game__item--scissors" @click="handlePick('scissors')">
+          <ScissorsSvg color="#3B4262" />
         </div>
-        <div class="rps-one-item rock" @click="handlePick('rock')">
-          <RockSvg />
+        <div class="game__item game__item--rock" @click="handlePick('rock')">
+          <RockSvg color="#3B4262" />
         </div>
       </div>
 
       <!-- Step 2: Result -->
-      <div v-else key="step2" class="rps-two">
+      <div v-else key="step2" :class="['game__two', result ? 'game__two--expanded' : '']">
         <!-- You Picked -->
-        <div class="slide-in-right">
-          <div :class="['rps-two-item', userChoice, result === 'win' ? 'active' : '']">
+        <div class="game__slide-left">
+          <div
+            :class="['game__item', `game__item--${userChoice}`, result === 'win' ? 'active' : '']"
+          >
             <component
+              :color="`#3B4262`"
               :is="
                 {
                   scissors: ScissorsSvg,
@@ -83,25 +86,30 @@ function handlePick(choice: Choice | null) {
               "
             />
           </div>
-          <h2 class="rps-title">You Picked</h2>
+          <h2 class="game__title">You Picked</h2>
           <span style="font-size: 12px">{{ userChoice }}</span>
         </div>
 
         <!-- Result -->
-        <div class="rps-center">
-          <div v-if="result">
-            <h1 class="rps-lead">
-              {{ result === 'win' ? 'You Win' : result === 'lose' ? 'You Lose' : 'Tie' }}
-            </h1>
+        <div class="game__center">
+          <Transition name="fade">
+            <div v-if="result">
+              <h1 class="game__lead">
+                {{ result === 'win' ? 'You Win' : result === 'lose' ? 'You Lose' : 'Tie' }}
+              </h1>
 
-            <button class="rps-button" @click="playAgain">Play Again</button>
-          </div>
+              <button class="game__button" @click="playAgain">Play Again</button>
+            </div>
+          </Transition>
         </div>
 
         <!-- The House Picked -->
-        <div class="slide-in-left">
-          <div :class="['rps-two-item', houseChoice, result === 'lose' ? 'active' : '']">
+        <div class="game__slide-right">
+          <div
+            :class="['game__item', `game__item--${houseChoice}`, result === 'lose' ? 'active' : '']"
+          >
             <component
+              :color="`#3B4262`"
               :is="
                 {
                   scissors: ScissorsSvg,
@@ -111,7 +119,7 @@ function handlePick(choice: Choice | null) {
               "
             />
           </div>
-          <h2 class="rps-title">The House Picked</h2>
+          <h2 class="game__title">The House Picked</h2>
           <span style="font-size: 12px">{{ houseChoice }}</span>
         </div>
       </div>

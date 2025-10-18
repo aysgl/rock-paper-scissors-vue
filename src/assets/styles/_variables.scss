@@ -11,7 +11,7 @@
   /* Static values */
   --rps-border-width: 3px;
   --rps-border-color: rgba(255, 255, 255, 0.29);
-  --rps-border-radius: 15px;
+  --rps-border-radius: clamp(2px, 2vw, 15px);
   --rps-background-gradient: radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%);
   --rps-background: #131537;
   --rps-shadow-color: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
@@ -23,12 +23,12 @@
   --spacing-sm: clamp(1rem, 3vw, 2rem);
   --spacing-md: clamp(1.5rem, 4vw, 3rem);
   --spacing-lg: clamp(2rem, 4vw, 4rem);
-  --spacing-lead: clamp(2rem, calc(10rem - 5vw), 12rem);
+  --spacing-lead: clamp(2rem, 8vw, 12rem);
 
   /* Font sizes */
   --font-xs: clamp(10px, 2vw, 12px);
   --font-sm: clamp(12px, 2.5vw, 16px);
-  --font-md: clamp(18px, 3.5vw, 24px);
+  --font-md: clamp(18px, 3.5vw, 32px);
   --font-lg: clamp(36px, 6vw, 56px);
   --font-xl: clamp(42px, 8vw, 64px);
 

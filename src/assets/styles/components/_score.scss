@@ -1,4 +1,4 @@
-.lead {
+.score {
   border: var(--rps-border-width) solid var(--rps-border-color);
   border-radius: var(--rps-border-radius);
   width: 100%;
@@ -10,15 +10,14 @@
   padding: var(--spacing-xs);
   gap: var(--spacing-xs);
 
-  &-logo {
+  &__logo {
     width: var(--lead-logo-width);
-    height: var(--lead-height);
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  &-score {
+  &__score {
     background: var(--rps-score-background);
     width: var(--score-width);
     height: var(--score-height);
