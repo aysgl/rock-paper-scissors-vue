@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import GameBoard from '../components/game/GameBoard.vue'
+import RulesModal from '../components/ui/RulesModal.vue'
+import ScoreBoard from '../components/ui/ScoreBoard.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="welcome">
+    <ScoreBoard />
+    <GameBoard />
+    <RulesModal />
   </main>
 </template>

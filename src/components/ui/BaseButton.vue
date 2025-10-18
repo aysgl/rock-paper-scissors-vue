@@ -1,0 +1,72 @@
+<script setup lang="ts">
+interface Props {
+  variant?: 'primary' | 'outline'
+  size?: 'sm' | 'md' | 'lg'
+  disabled?: boolean
+}
+
+withDefaults(defineProps<Props>(), {
+  variant: 'outline',
+  size: 'md',
+  disabled: false,
+})
+
+defineEmits<{
+  click: []
+}>()
+</script>
+
+<template>
+  <button
+    :class="['base-button', `base-button--${variant}`, `base-button--${size}`]"
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
+    <slot />
+  </button>
+</template>
+
+<style scoped lang="scss">
+.base-button {
+  background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
+  font-weight: 600;
+  font-size: var(--font-sm);
+  line-height: 1;
+  letter-spacing: clamp(1.5px, 0.3vw, 2.5px);
+  color: rgba(59, 66, 98, 1);
+  box-shadow: var(--rps-shadow-color);
+  border-radius: 8px;
+  padding: clamp(12px, 2vw, 16px) clamp(24px, 4vw, 34px);
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-family: var(--rps-font-family);
+
+  &:hover:not(:disabled) {
+    color: rgba(219, 46, 77, 1);
+    background: linear-gradient(0deg, #f3f3f3 0%, #ffffff 100%);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &--outline {
+    background: transparent;
+    color: rgba(255, 255, 255, 1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+  }
+
+  &--sm {
+    padding: clamp(8px, 1.5vw, 12px) clamp(16px, 3vw, 24px);
+    font-size: var(--font-xs);
+  }
+
+  &--lg {
+    padding: clamp(16px, 2.5vw, 20px) clamp(32px, 5vw, 44px);
+    font-size: var(--font-md);
+  }
+}
+</style>

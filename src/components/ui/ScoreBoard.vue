@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LogoSvg from './svg/LogoSvg.vue'
+import LogoSvg from '../svg/LogoSvg.vue'
 </script>
 
 <template>

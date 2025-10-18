@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import TheWelcome from './components/TheWelcome.vue'
+import HomeView from './views/HomeView.vue'
 </script>
 
 <template>
-  <TheWelcome />
+  <HomeView />
 </template>

@@ -66,25 +66,9 @@
 
   /* Rules Button */
   &__button {
-    background: transparent;
-    border: 2px solid var(--rps-border-color);
-    padding: 12px 24px;
-    font-size: var(--font-sm);
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    font-family: var(--rps-font-family);
-    color: #fff;
     position: absolute;
     bottom: var(--spacing-lg);
     right: var(--spacing-lg);
-
-    &:hover {
-      background: var(--rps-border-color);
-      color: var(--rps-background);
-    }
   }
 
   /* Diagram Area */

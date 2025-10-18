@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import RulesSvg from './svg/RulesSvg.vue'
+import RulesSvg from '../svg/RulesSvg.vue'
+import BaseButton from './BaseButton.vue'
 
 const isOpen = ref(false)
 </script>
 
 <template>
   <div class="rules">
-    <button class="rules__button" @click="isOpen = true">Rules</button>
+    <BaseButton variant="outline" size="sm" class="rules__button" @click="isOpen = true"
+      >Rules</BaseButton
+    >
 
     <Transition name="fade">
       <div v-if="isOpen" class="rules__overlay">
