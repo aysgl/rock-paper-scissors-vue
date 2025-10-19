@@ -8,7 +8,7 @@
 
 body {
   min-height: 100vh;
-  color: white;
+  color: var(--rps-white);
   background: var(--rps-background-gradient);
   font-family: var(--rps-font-family);
   font-size: var(--font-sm);
@@ -26,4 +26,8 @@ body {
   body {
     padding: var(--spacing-lg);
   }
+}
+
+.w-full {
+  width: 100%;
 }

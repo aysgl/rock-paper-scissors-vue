@@ -1,116 +1,15 @@
 .rules {
-
-  /* Modal Overlay */
-  &__overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-
-  /* Modal Box */
-  &__content {
-    background: var(--rps-white);
-    border-radius: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: var(--spacing-lg);
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Modal Header */
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-
-  &__footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-  }
-
-  &__title {
-    font-weight: 700;
-    font-size: var(--font-md);
-    color: rgba(59, 66, 98, 1);
-    text-align: center;
-  }
-
-  &__close {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    color: rgba(59, 66, 98, 1);
-    opacity: 0;
-    position: absolute;
-    right: 0;
-
-    &:hover {
-      opacity: 0.7;
-    }
-  }
-
-  &__close--footer {
-    opacity: 1;
-    position: static;
-  }
-
-  /* Rules Button */
   &__button {
     position: absolute;
     bottom: var(--spacing-lg);
     right: var(--spacing-lg);
   }
 
-  /* Diagram Area */
   &__diagram {
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: clamp(100%, 60vw, 400px);
-    height: 100%;
-    max-height: clamp(250px, 60vh, 300px);
-    margin: auto var(--spacing-lg);
-  }
-
-  @media (min-width: 768px) {
-    &__content {
-      border-radius: var(--rps-border-radius);
-      width: clamp(300px, 60vw, 400px);
-      height: clamp(350px, 60vh, 400px);
-      padding: var(--spacing-xs);
-    }
-
-    &__overlay {
-      align-items: center;
-      justify-content: center;
-    }
-
-    &__header {
-      justify-content: space-between;
-    }
-
-    &__close--header {
-      opacity: 1;
-      position: static;
-    }
-
-    &__footer {
-      opacity: 0;
-    }
-
-    &__close--footer {
-      opacity: 0;
-    }
+    max-width: 400px;
+    margin: 0 auto;
   }
 }

@@ -51,7 +51,7 @@
     border-radius: 50%;
     width: var(--item-size);
     height: var(--item-size);
-    background: linear-gradient(0deg, #F3F3F3 0%, #DADADA 98.34%);
+    background: var(--rps-score-background);
     cursor: pointer;
     transition: box-shadow 0.2s;
     padding: 30px;
@@ -60,13 +60,13 @@
   &__item--paper {
     border: var(--item-border) solid var(--rps-paper-background);
     box-shadow:
-      0 5px 0px 3px #2A45C2,
-      inset 0px 5px 0 3px #BABFD4;
+      0 5px 0px 3px var(--rps-paper-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow);
 
     &:hover {
       box-shadow:
-        0 5px 0px 3px #2A45C2,
-        inset 0px 5px 0 3px #BABFD4,
+        0 5px 0px 3px var(--rps-paper-shadow),
+        inset 0px 5px 0 3px var(--rps-inset-shadow),
         0 0 0 clamp(15px, 3vw, 25px) rgba(255, 255, 255, 0.1);
     }
   }
@@ -74,13 +74,13 @@
   &__item--scissors {
     border: var(--item-border) solid var(--rps-scissors-background);
     box-shadow:
-      0 5px 0px 3px #C76C1B,
-      inset 0px 5px 0 3px #BABFD4;
+      0 5px 0px 3px var(--rps-scissors-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow);
 
     &:hover {
       box-shadow:
-        0 5px 0px 3px #C76C1B,
-        inset 0px 5px 0 3px #BABFD4,
+        0 5px 0px 3px var(--rps-scissors-shadow),
+        inset 0px 5px 0 3px var(--rps-inset-shadow),
         0 0 0 clamp(15px, 3vw, 25px) rgba(255, 255, 255, 0.1);
     }
   }
@@ -88,13 +88,13 @@
   &__item--rock {
     border: var(--item-border) solid var(--rps-rock-background);
     box-shadow:
-      0 5px 0px 3px #9D1634,
-      inset 0px 5px 0 3px #BABFD4;
+      0 5px 0px 3px var(--rps-rock-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow);
 
     &:hover {
       box-shadow:
-        0 5px 0px 3px #9D1634,
-        inset 0px 5px 0 3px #BABFD4,
+        0 5px 0px 3px var(--rps-rock-shadow),
+        inset 0px 5px 0 3px var(--rps-inset-shadow),
         0 0 0 clamp(15px, 3vw, 25px) rgba(255, 255, 255, 0.1);
     }
   }

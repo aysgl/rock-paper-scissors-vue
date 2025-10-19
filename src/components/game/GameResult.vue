@@ -6,7 +6,7 @@ import GamePlayer from './GamePlayer.vue'
 interface Props {
   userChoice: ChoiceType
   houseChoice: ChoiceType
-  result: GameResultType
+  result?: GameResultType
   hasResult: boolean
 }
 
@@ -16,7 +16,8 @@ const emit = defineEmits<{
   playAgain: []
 }>()
 
-function getResultText(result: string): string {
+function getResultText(result?: string): string {
+  if (!result) return ''
   if (result === 'win') return 'You Win'
   if (result === 'lose') return 'You Lose'
   return 'Tie'

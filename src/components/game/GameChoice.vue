@@ -10,7 +10,6 @@ const emit = defineEmits<{
 }>()
 
 function handlePick(choice: ChoiceType) {
-  console.log('picked choice', choice)
   emit('pick', choice)
 }
 </script>

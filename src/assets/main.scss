@@ -8,6 +8,10 @@
 @use './styles/components/game';
 @use './styles/components/score';
 @use './styles/components/rules';
+@use './styles/components/leaderboard';
+
+// Modal
+@use './styles/modal';
 
 // Animations
 @use './styles/animations';

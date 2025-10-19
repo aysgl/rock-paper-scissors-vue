@@ -1,15 +1,17 @@
 import axios from 'axios'
 
+const baseURL = (import.meta as ImportMeta).env?.VITE_API_URL || 'http://localhost:5001'
+
 export const api = axios.create({
-  baseURL: 'http://localhost:5001',
+  baseURL,
+  timeout: 10000,
 })
 
-export const getChoices = async () => {
-  const response = await api.get('/choices')
-  return response.data
-}
-
-export const getRules = async () => {
-  const response = await api.get('/rules')
-  return response.data
-}
+// Error interceptor for better debugging
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    console.error('API Error:', error.message)
+    return Promise.reject(error)
+  },
+)

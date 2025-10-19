@@ -2,33 +2,21 @@
 import { ref } from 'vue'
 import RulesSvg from '../svg/RulesSvg.vue'
 import BaseButton from './BaseButton.vue'
+import BaseModal from './BaseModal.vue'
 
 const isOpen = ref(false)
 </script>
 
 <template>
   <div class="rules">
-    <BaseButton variant="outline" size="sm" class="rules__button" @click="isOpen = true"
-      >Rules</BaseButton
-    >
+    <BaseButton variant="outline" size="sm" class="rules__button" @click="isOpen = true">
+      Rules
+    </BaseButton>
 
-    <Transition name="fade">
-      <div v-if="isOpen" class="rules__overlay">
-        <div class="rules__content">
-          <div class="rules__header">
-            <h2 class="rules__title">Rules</h2>
-            <button class="rules__close rules__close--header" @click="isOpen = false">×</button>
-          </div>
-
-          <div class="rules__diagram">
-            <RulesSvg />
-          </div>
-
-          <div class="rules__footer">
-            <button class="rules__close rules__close--footer" @click="isOpen = false">×</button>
-          </div>
-        </div>
+    <BaseModal :isOpen="isOpen" size="medium" title="Rules" @close="isOpen = false">
+      <div class="rules__diagram">
+        <RulesSvg />
       </div>
-    </Transition>
+    </BaseModal>
   </div>
 </template>

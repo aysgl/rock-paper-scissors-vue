@@ -5,7 +5,7 @@ import ScoreBoard from '../components/ui/ScoreBoard.vue'
 </script>
 
 <template>
-  <main class="welcome">
+  <main class="welcome fade">
     <ScoreBoard />
     <GameBoard />
     <RulesModal />

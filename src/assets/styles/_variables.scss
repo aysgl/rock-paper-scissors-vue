@@ -1,21 +1,27 @@
 :root {
   /* Colors */
   --rps-white: #ffffff;
-  --rps-black: #000000;
+  --rps-black: #565468;
+  --rps-secondary: #2A45C2;
   --rps-rock-background: rgba(219, 46, 77, 1);
-  --rps-paper-background: rgba(70, 100, 244, 1);
+  --rps-rock-shadow: #9D1634;
+  --rps-paper-background: rgb(70, 100, 244);
+  --rps-paper-shadow: #2A45C2;
   --rps-scissors-background: rgba(235, 159, 14, 1);
+  --rps-scissors-shadow: #C76C1B;
+  --rps-inset-shadow: #BABFD4;
   --rps-triangle-width: clamp(25px, 2vw, 30px);
+  --rps-modal-background: radial-gradient(134.34% 134.34% at 50% 0%, rgba(31, 55, 87, 0.6) 0%, rgba(0, 0, 0, 0.7) 100%);
   --lead-logo-width: clamp(110px, 12vw, 260px);
 
   /* Static values */
   --rps-border-width: 3px;
   --rps-border-color: rgba(255, 255, 255, 0.29);
   --rps-border-radius: clamp(2px, 2vw, 15px);
-  --rps-background-gradient: radial-gradient(134.34% 134.34% at 50% 0%, #1F3757 0%, #131537 100%);
+  --rps-background-gradient: radial-gradient(134.34% 134.34% at 50% 0%, rgb(31, 55, 87) 0%, rgb(19, 21, 55) 100%);
   --rps-background: #131537;
   --rps-shadow-color: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
-  --rps-score-background: linear-gradient(0deg, #F3F3F3 0%, #FFFFFF 100%);
+  --rps-score-background: linear-gradient(0deg, #F3F3F3 0%, #DADADA 98%);
   --rps-font-family: 'Barlow Semi Condensed', sans-serif;
 
   /* Responsive sizes (mobile-first with clamp) */

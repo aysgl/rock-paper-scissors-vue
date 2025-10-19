@@ -22,8 +22,8 @@
 @keyframes pulse-shadow-paper {
   0% {
     box-shadow:
-      0 5px 0px 3px #2A45C2,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-paper-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 0 rgba(255, 255, 255, 0.3),
       0 0 0 0 rgba(255, 255, 255, 0.2),
       0 0 0 0 rgba(255, 255, 255, 0.1);
@@ -31,8 +31,8 @@
 
   50% {
     box-shadow:
-      0 5px 0px 3px #2A45C2,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-paper-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 50px rgba(255, 255, 255, 0.01),
       0 0 0 100px rgba(255, 255, 255, 0.01),
       0 0 0 150px rgba(255, 255, 255, 0.01);
@@ -40,8 +40,8 @@
 
   100% {
     box-shadow:
-      0 5px 0px 3px #2A45C2,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-paper-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0);
@@ -51,8 +51,8 @@
 @keyframes pulse-shadow-scissors {
   0% {
     box-shadow:
-      0 5px 0px 3px #C76C1B,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-scissors-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 0 rgba(255, 255, 255, 0.3),
       0 0 0 0 rgba(255, 255, 255, 0.2),
       0 0 0 0 rgba(255, 255, 255, 0.1);
@@ -60,8 +60,8 @@
 
   50% {
     box-shadow:
-      0 5px 0px 3px #C76C1B,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-scissors-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 50px rgba(255, 255, 255, 0.01),
       0 0 0 100px rgba(255, 255, 255, 0.01),
       0 0 0 150px rgba(255, 255, 255, 0.01);
@@ -69,8 +69,8 @@
 
   100% {
     box-shadow:
-      0 5px 0px 3px #C76C1B,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-scissors-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0);
@@ -80,8 +80,8 @@
 @keyframes pulse-shadow-rock {
   0% {
     box-shadow:
-      0 5px 0px 3px #9D1634,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-rock-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 0 rgba(255, 255, 255, 0.3),
       0 0 0 0 rgba(255, 255, 255, 0.2),
       0 0 0 0 rgba(255, 255, 255, 0.1);
@@ -89,8 +89,8 @@
 
   50% {
     box-shadow:
-      0 5px 0px 3px #9D1634,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-rock-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 50px rgba(255, 255, 255, 0.01),
       0 0 0 100px rgba(255, 255, 255, 0.01),
       0 0 0 150px rgba(255, 255, 255, 0.01);
@@ -98,8 +98,8 @@
 
   100% {
     box-shadow:
-      0 5px 0px 3px #9D1634,
-      inset 0px 5px 0 3px #BABFD4,
+      0 5px 0px 3px var(--rps-rock-shadow),
+      inset 0px 5px 0 3px var(--rps-inset-shadow),
       0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0),
       0 0 0 0 rgba(255, 255, 255, 0);
@@ -117,4 +117,44 @@
 
 .game__item--rock.active {
   animation: pulse-shadow-rock 1.5s ease-in-out infinite;
+}
+
+/* Modal Animations */
+.modal-enter-active,
+.modal-leave-active {
+  transition: opacity 0.3s ease;
+
+  .modal__backdrop {
+    transition: opacity 0.3s ease;
+  }
+
+  .modal__container {
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+.modal-enter-from {
+  opacity: 0;
+
+  .modal__backdrop {
+    opacity: 0;
+  }
+
+  .modal__container {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 30px));
+  }
+}
+
+.modal-leave-to {
+  opacity: 0;
+
+  .modal__backdrop {
+    opacity: 0;
+  }
+
+  .modal__container {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 30px));
+  }
 }

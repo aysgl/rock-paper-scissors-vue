@@ -1,51 +1,56 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted } from 'vue'
 import type { ChoiceType, GameResultType } from '../../types/game.types'
+import type { ChoiceAPI } from '../../types/api.types'
 import GameChoice from './GameChoice.vue'
 import GameResult from './GameResult.vue'
+import { useGameStore } from '../../store/gameStore'
+import { useScoreStore } from '../../store/scoreStore'
 
-const userChoice = ref<ChoiceType>()
-const houseChoice = ref<ChoiceType>()
-const result = ref<GameResultType>()
+const gameStore = useGameStore()
+const scoreStore = useScoreStore()
+
+onMounted(() => {
+  gameStore.fetchChoices()
+  gameStore.fetchRules()
+  scoreStore.fetchScoreboard()
+})
 
 function getRandom(): ChoiceType {
-  const choices = ['paper', 'scissors', 'rock'] as const
-  return choices[Math.floor(Math.random() * choices.length)] as ChoiceType
+  const choices = gameStore?.choices.map((c: ChoiceAPI) => c?.id)
+  return choices?.[Math.floor(Math.random() * choices.length)] as ChoiceType
 }
 
 function handlePick(choice: ChoiceType) {
-  userChoice.value = choice
+  gameStore.userChoice = choice
 
   const interval = setInterval(() => {
-    houseChoice.value = getRandom()
+    gameStore.houseChoice = getRandom()
   }, 100)
 
   setTimeout(() => {
     clearInterval(interval)
-    houseChoice.value = getRandom()
+    gameStore.houseChoice = getRandom()
 
-    if (userChoice.value === houseChoice.value) {
-      result.value = 'tie'
-    } else if (
-      (userChoice.value === 'rock' && houseChoice.value === 'scissors') ||
-      (userChoice.value === 'paper' && houseChoice.value === 'rock') ||
-      (userChoice.value === 'scissors' && houseChoice.value === 'paper')
-    ) {
-      result.value = 'win'
-    } else {
-      result.value = 'lose'
-    }
+    gameStore
+      .getResults(gameStore.userChoice as ChoiceType, gameStore.houseChoice as ChoiceType)
+      .then(async (result) => {
+        gameStore.gameResult = result as GameResultType
+
+        // Save game
+        await gameStore.savedGame(
+          gameStore.userChoice as ChoiceType,
+          gameStore.houseChoice as ChoiceType,
+          gameStore.gameResult as GameResultType,
+        )
+
+        // Update score
+        await scoreStore.updateScoreBoard(gameStore.gameResult as GameResultType)
+      })
+      .catch((error) => {
+        console.error('Error getting results:', error)
+      })
   }, 2000)
-
-  console.log('userChoice', userChoice.value)
-  console.log('houseChoice', houseChoice.value)
-  console.log('result', result.value)
-}
-
-function playAgain() {
-  userChoice.value = undefined
-  houseChoice.value = undefined
-  result.value = undefined
 }
 </script>
 
@@ -53,17 +58,17 @@ function playAgain() {
   <div class="game">
     <Transition name="fade" mode="out-in">
       <!-- Step 1: Pick -->
-      <GameChoice v-if="!userChoice" key="step1" @pick="handlePick" />
+      <GameChoice v-if="!gameStore.userChoice" key="step1" @pick="handlePick" />
 
       <!-- Step 2: Result -->
       <GameResult
         v-else
         key="step2"
-        :user-choice="userChoice as ChoiceType"
-        :house-choice="houseChoice as ChoiceType"
-        :result="result as GameResultType"
-        :has-result="!!result"
-        @play-again="playAgain"
+        :user-choice="gameStore.userChoice as ChoiceType"
+        :house-choice="gameStore.houseChoice as ChoiceType"
+        :result="gameStore.gameResult as GameResultType"
+        :has-result="!!gameStore.gameResult"
+        @play-again="gameStore.playAgain"
       />
     </Transition>
   </div>
