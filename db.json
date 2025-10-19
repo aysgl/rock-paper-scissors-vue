@@ -753,28 +753,156 @@
       "houseChoice": "rock",
       "result": "win",
       "timestamp": "2025-10-19T11:37:30.692Z"
+    },
+    {
+      "id": "b9cb",
+      "playerId": "1760874261705",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-19T11:44:21.705Z"
+    },
+    {
+      "id": "1d67",
+      "playerId": "1760874269842",
+      "playerChoice": "rock",
+      "houseChoice": "paper",
+      "result": "lose",
+      "timestamp": "2025-10-19T11:44:29.842Z"
+    },
+    {
+      "id": "3491",
+      "playerId": "1760875826040",
+      "playerChoice": "scissors",
+      "houseChoice": "paper",
+      "result": "win",
+      "timestamp": "2025-10-19T12:10:26.040Z"
+    },
+    {
+      "id": "b303",
+      "playerId": "1760876306063",
+      "playerChoice": "scissors",
+      "houseChoice": "paper",
+      "result": "win",
+      "timestamp": "2025-10-19T12:18:26.063Z"
+    },
+    {
+      "id": "5eee",
+      "playerId": "1760876828069",
+      "playerChoice": "paper",
+      "houseChoice": "paper",
+      "result": "tie",
+      "timestamp": "2025-10-19T12:27:08.069Z"
+    },
+    {
+      "id": "106c",
+      "playerId": "1760876858111",
+      "playerChoice": "paper",
+      "houseChoice": "paper",
+      "result": "tie",
+      "timestamp": "2025-10-19T12:27:38.111Z"
+    },
+    {
+      "id": "0c8e",
+      "playerId": "1760878546831",
+      "playerChoice": "paper",
+      "houseChoice": "scissors",
+      "result": "lose",
+      "timestamp": "2025-10-19T12:55:46.831Z"
+    },
+    {
+      "id": "9e7b",
+      "playerId": "1760878555471",
+      "playerChoice": "rock",
+      "houseChoice": "scissors",
+      "result": "win",
+      "timestamp": "2025-10-19T12:55:55.471Z"
+    },
+    {
+      "id": "52b0",
+      "playerId": "1760878566425",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-19T12:56:06.425Z"
+    },
+    {
+      "id": "9ba8",
+      "playerId": "1760878572537",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-19T12:56:12.537Z"
+    },
+    {
+      "id": "b4a7",
+      "playerId": "1760878577947",
+      "playerChoice": "paper",
+      "houseChoice": "paper",
+      "result": "tie",
+      "timestamp": "2025-10-19T12:56:17.947Z"
+    },
+    {
+      "id": "0caa",
+      "playerId": "1760878584224",
+      "playerChoice": "paper",
+      "houseChoice": "rock",
+      "result": "win",
+      "timestamp": "2025-10-19T12:56:24.224Z"
+    },
+    {
+      "id": "d674",
+      "playerId": "1760878868511",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-19T13:01:08.511Z"
+    },
+    {
+      "id": "2273",
+      "playerId": "1760878973455",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-19T13:02:53.455Z"
+    },
+    {
+      "id": "aa41",
+      "playerId": "1760878977605",
+      "playerChoice": "paper",
+      "houseChoice": "paper",
+      "result": "tie",
+      "timestamp": "2025-10-19T13:02:57.605Z"
+    },
+    {
+      "id": "165b",
+      "playerId": "1760878983623",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-19T13:03:03.623Z"
     }
   ],
   "scoreboard": [
     {
       "id": "fdswq4rqwerfads",
       "username": "Player",
-      "score": 23,
-      "gamesPlayed": 85,
-      "wins": 23,
-      "losses": 35,
-      "ties": 27,
+      "score": 27,
+      "gamesPlayed": 101,
+      "wins": 27,
+      "losses": 37,
+      "ties": 37,
       "winRate": 27
     },
     {
       "id": "computer-ai",
       "username": "Computer",
-      "score": 35,
-      "gamesPlayed": 85,
-      "wins": 35,
-      "losses": 23,
-      "ties": 27,
-      "winRate": 41
+      "score": 37,
+      "gamesPlayed": 101,
+      "wins": 37,
+      "losses": 27,
+      "ties": 37,
+      "winRate": 37
     },
     {
       "id": "player-champion",

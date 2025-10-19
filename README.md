@@ -1,48 +1,242 @@
-# rock-paper-scissors-vue
+# 🎮 Taş Kağıt Makas - Vue 3
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue 3, TypeScript ve Pinia ile geliştirilmiş modern, interaktif Taş Kağıt Makas oyunu. Bilgisayara karşı oynayın ve skorlarınızı lider tablosunda takip edin!
 
-## Recommended IDE Setup
+## 🚀 Demo
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+**Canlı Demo:** [https://rock-paper-scissors-vue-seven.vercel.app/](https://rock-paper-scissors-vue-seven.vercel.app/)
 
-## Recommended Browser Setup
+## ✨ Özellikler
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- 🎯 **Dinamik Oyun Mantığı** - Seçenekler ve kurallar veritabanından yüklenir
+- 📊 **Canlı Lider Tablosu** - Birden fazla oyuncu için gerçek zamanlı skor takibi
+- 🎨 **Responsive Tasarım** - Masaüstü ve mobil cihazlar için optimize edilmiş
+- 🏆 **Skor Sistemi** - Kazanma, kaybetme, berabere ve kazanma oranlarını takip edin
+- 💾 **Oyun Geçmişi** - Her oyun detaylı bilgilerle kaydedilir
+- 🎭 **Akıcı Animasyonlar** - Modal geçişleri ve oyun efektleri
+- 🔄 **Durum Yönetimi** - Pinia ile merkezi state yönetimi
+- 📱 **Mobil Öncelikli** - Mobil cihazlarda tam ekran modaller
 
-## Type Support for `.vue` Imports in TS
+## 🛠 Teknoloji Yığını
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- **Framework:** Vue 3 (Composition API)
+- **Dil:** TypeScript
+- **State Yönetimi:** Pinia
+- **Stil:** SCSS (BEM Metodolojisi)
+- **HTTP İstemcisi:** Axios
+- **Veritabanı:** JSON Server
+- **Build Aracı:** Vite
+- **Deploy:** Vercel
 
-## Customize configuration
+## 📦 Kurulum
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Ön Gereksinimler
 
-## Project Setup
+- Node.js (v20.19.0 veya >=22.12.0)
+- npm veya yarn
 
-```sh
+### Klonlama ve Kurulum
+
+```bash
+# Projeyi klonlayın
+git clone <repo-url>
+cd rock-paper-scissors-vue
+
+# Bağımlılıkları yükleyin
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## 🚀 Uygulamayı Çalıştırma
 
-```sh
+### Geliştirme Modu
+
+**İki sunucuyu** aynı anda çalıştırmanız gerekir:
+
+#### 1. JSON Server'ı Başlatın (Backend)
+
+```bash
+npm run server
+```
+
+Mock API sunucusunu `http://localhost:5001` adresinde başlatır
+
+#### 2. Vite Dev Server'ı Başlatın (Frontend)
+
+```bash
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Vue uygulamasını `http://localhost:5173` adresinde başlatır
 
-```sh
+### Production Build
+
+```bash
+# Type kontrolü ve build
 npm run build
+
+# Production build'i önizleme
+npm run preview
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 📁 Proje Yapısı
 
-```sh
-npm run lint
 ```
+src/
+├── api/              # API client konfigürasyonu
+│   └── api.ts        # Axios instance ve interceptor'lar
+├── assets/           # Global stiller ve varlıklar
+│   └── styles/       # SCSS dosyaları (BEM metodolojisi)
+├── components/       # Vue komponentleri
+│   ├── game/         # Oyuna özel komponentler
+│   ├── svg/          # SVG ikon komponentleri
+│   └── ui/           # Yeniden kullanılabilir UI komponentleri
+│       ├── BaseModal.vue
+│       ├── BaseButton.vue
+│       ├── LeaderBoard.vue
+│       ├── RulesModal.vue
+│       └── ScoreBoard.vue
+├── router/           # Vue Router konfigürasyonu
+├── store/            # Pinia store'lar
+│   ├── gameStore.ts  # Oyun state'i ve mantığı
+│   └── scoreStore.ts # Lider tablosu state'i ve mantığı
+├── types/            # TypeScript tip tanımlamaları
+└── views/            # Sayfa komponentleri
+```
+
+## 🎮 Nasıl Oynanır
+
+1. **Taş**, **Kağıt** veya **Makas**'a tıklayarak seçiminizi yapın
+2. Bilgisayar rastgele seçimini yapacak
+3. Sonucu ve güncellenmiş skorunuzu görün
+4. **Lider Tablosu modal'ı** otomatik açılır ve şunları gösterir:
+   - Sonucunuz (Kazandınız/Kaybettiniz/Berabere)
+   - Güncel sıralamalar
+   - Oyuncu istatistikleri
+5. Yeni bir tur başlatmak için **Tekrar Oyna**'ya tıklayın
+6. Lider tablosunu istediğiniz zaman görmek için **Score**'a tıklayın
+
+## 📊 Veritabanı Şeması
+
+### Seçenekler (Choices)
+
+```json
+{
+  "id": "rock" | "paper" | "scissors",
+  "name": "Rock" | "Paper" | "Scissors"
+}
+```
+
+### Kurallar (Rules)
+
+```json
+{
+  "id": "rule-id",
+  "winner": "rock" | "paper" | "scissors",
+  "loser": "rock" | "paper" | "scissors",
+  "verb": "crushes" | "covers" | "cuts"
+}
+```
+
+### Oyunlar (Games - Loglama)
+
+```json
+{
+  "id": "unique-id",
+  "playerId": "timestamp-based-id",
+  "playerChoice": "rock" | "paper" | "scissors",
+  "houseChoice": "rock" | "paper" | "scissors",
+  "result": "win" | "lose" | "tie",
+  "timestamp": "ISO-8601-format"
+}
+```
+
+### Skor Tablosu (Scoreboard)
+
+```json
+{
+  "id": "player-id",
+  "username": "Player",
+  "score": 15,
+  "gamesPlayed": 30,
+  "wins": 15,
+  "losses": 10,
+  "ties": 5,
+  "winRate": 50
+}
+```
+
+## 🔌 API Endpoint'leri
+
+Base URL: `http://localhost:5001`
+
+| Method | Endpoint          | Açıklama                       |
+| ------ | ----------------- | ------------------------------ |
+| GET    | `/choices`        | Oyun seçeneklerini getir       |
+| GET    | `/rules`          | Oyun kurallarını getir         |
+| GET    | `/scoreboard`     | Lider tablosu verilerini getir |
+| POST   | `/games`          | Oyun sonucunu kaydet           |
+| PUT    | `/scoreboard/:id` | Oyuncu skorunu güncelle        |
+
+## 🎨 Özellik Vurguları
+
+### State Yönetimi (Pinia)
+
+- **gameStore**: Oyun durumu, seçenekler ve kuralları yönetir
+- **scoreStore**: Lider tablosu ve skor güncellemelerini yönetir
+
+### Yeniden Kullanılabilir Komponentler
+
+- **BaseModal**: Responsive davranışa sahip genel modal
+- **BaseButton**: Varyantlı stillendirilmiş buton komponenti
+- **GamePlayer**: Oyuncu seçim gösterim komponenti
+
+### Responsive Tasarım
+
+- **Desktop**: Sabit genişlikte ortalanmış modaller
+- **Mobile**: Optimize edilmiş düzene sahip tam ekran modaller
+- **Uyarlanabilir UI**: Close butonu pozisyonu değişir (header → footer)
+
+### Ölçeklenebilirlik
+
+- Yeni seçenekler (lizard, spock, vb.) kolayca eklenebilir
+- Kurallar veritabanından dinamik yüklenir
+- Modüler komponent mimarisi
+
+## 📜 Kullanılabilir Scriptler
+
+```bash
+npm run dev        # Geliştirme sunucusunu başlat
+npm run server     # JSON server'ı başlat (backend)
+npm run build      # Production için build al
+npm run preview    # Production build'i önizle
+npm run lint       # Kodu lint'le ve düzelt
+npm run format     # Prettier ile kodu formatla
+npm run type-check # TypeScript tip kontrolü
+```
+
+## 🌍 Environment Variables
+
+Root dizinde `.env` dosyası oluşturun:
+
+```env
+VITE_API_URL=http://localhost:5001
+```
+
+Production deployment için, hosting platformunuzda (Vercel, Netlify, vb.) environment variable'ı ayarlayın.
+
+## 🏗 Mimari Kararlar
+
+- **Composition API**: `<script setup>` ile modern Vue 3 yaklaşımı
+- **BEM Metodolojisi**: Sürdürülebilir ve ölçeklenebilir CSS yapısı
+- **TypeScript**: Uygulama genelinde tip güvenliği
+- **Modüler Tasarım**: Yeni özelliklerle kolayca genişletilebilir
+- **Merkezi State**: Pinia ile tek doğruluk kaynağı
+- **Hata Yönetimi**: Debug için API interceptor'lar
+
+## 📝 Lisans
+
+Bu proje teknik değerlendirme için oluşturulmuştur.
+
+---
+
+Vue 3 + TypeScript ile ❤️ ile geliştirildi

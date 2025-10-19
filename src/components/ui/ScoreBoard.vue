@@ -14,7 +14,6 @@ const hasPlayedGame = computed(() => {
 const isOpen = ref(false)
 const showResult = ref(false)
 
-// Watch for game result - open modal automatically
 watch(
   () => gameStore.gameResult,
   (newResult) => {
@@ -31,15 +30,9 @@ onMounted(() => {
 
 const toggleLeaderBoard = () => {
   isOpen.value = !isOpen.value
-  // When manually opening, don't show result banner
   if (isOpen.value) {
     showResult.value = false
   }
-}
-
-const closeLeaderBoard = () => {
-  isOpen.value = false
-  showResult.value = false
 }
 </script>
 
@@ -55,5 +48,5 @@ const closeLeaderBoard = () => {
     </div>
   </div>
 
-  <LeaderBoard :isOpen="isOpen" :showResult="showResult" @close="closeLeaderBoard" />
+  <LeaderBoard :isOpen="isOpen" :showResult="showResult" @close="toggleLeaderBoard" />
 </template>

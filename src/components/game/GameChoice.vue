@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { ChoiceType } from '../../types/game.types'
-import PaperSvg from '../svg/PaperSvg.vue'
-import RockSvg from '../svg/RockSvg.vue'
-import ScissorsSvg from '../svg/ScissorsSvg.vue'
 import TriangleSvg from '../svg/TriangleSvg.vue'
+import { useGameStore } from '../../store/gameStore'
+import { GAME_ICON_MAP } from '../../constants/gameIcons'
+
+const gameStore = useGameStore()
 
 const emit = defineEmits<{
   pick: [choice: ChoiceType]
@@ -20,14 +21,14 @@ function handlePick(choice: ChoiceType) {
       <TriangleSvg />
     </div>
 
-    <div class="game__item game__item--paper" @click="handlePick('paper')">
-      <PaperSvg color="#3B4262" />
-    </div>
-    <div class="game__item game__item--scissors" @click="handlePick('scissors')">
-      <ScissorsSvg color="#3B4262" />
-    </div>
-    <div class="game__item game__item--rock" @click="handlePick('rock')">
-      <RockSvg color="#3B4262" />
+    <!-- Dynamic rendering from database -->
+    <div
+      v-for="choice in gameStore.choices"
+      :key="choice.id"
+      :class="['game__item', `game__item--${choice.id}`]"
+      @click="handlePick(choice.id as ChoiceType)"
+    >
+      <component :is="GAME_ICON_MAP[choice.id as ChoiceType]" color="#3B4262" />
     </div>
   </div>
 </template>

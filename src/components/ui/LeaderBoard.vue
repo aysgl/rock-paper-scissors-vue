@@ -3,6 +3,7 @@ import { computed, onMounted } from 'vue'
 import { useScoreStore } from '../../store/scoreStore'
 import { useGameStore } from '../../store/gameStore'
 import BaseModal from './BaseModal.vue'
+import { useGame } from '../../composables/useGame'
 
 interface Props {
   isOpen: boolean
@@ -14,15 +15,10 @@ defineProps<Props>()
 const scoreStore = useScoreStore()
 const gameStore = useGameStore()
 
+const { getResultText } = useGame()
+
 const sortedLeaderboard = computed(() => {
   return [...scoreStore.score].sort((a, b) => b.score - a.score)
-})
-
-const resultText = computed(() => {
-  if (!gameStore.gameResult) return ''
-  if (gameStore.gameResult === 'win') return 'You Win!'
-  if (gameStore.gameResult === 'lose') return 'You Lose'
-  return 'Tie Game'
 })
 
 const resultClass = computed(() => {
@@ -49,7 +45,7 @@ onMounted(async () => {
     <!-- Result Banner -->
     <div class="w-full">
       <div v-if="showResult && gameStore.gameResult" :class="['leaderboard__result', resultClass]">
-        <h3>{{ resultText }}</h3>
+        <h3>{{ getResultText(gameStore.gameResult) }}</h3>
         <p v-if="gameStore.gameResult === 'win'">+1 Point! Keep going! 🚀</p>
         <p v-else-if="gameStore.gameResult === 'lose'">Better luck next time! 💪</p>
         <p v-else>No points this time</p>

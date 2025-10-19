@@ -2,6 +2,9 @@
 import type { ChoiceType, GameResultType } from '../../types/game.types'
 import BaseButton from '../ui/BaseButton.vue'
 import GamePlayer from './GamePlayer.vue'
+import { useGame } from '../../composables/useGame'
+
+const { getResultText } = useGame()
 
 interface Props {
   userChoice: ChoiceType
@@ -15,13 +18,6 @@ defineProps<Props>()
 const emit = defineEmits<{
   playAgain: []
 }>()
-
-function getResultText(result?: string): string {
-  if (!result) return ''
-  if (result === 'win') return 'You Win'
-  if (result === 'lose') return 'You Lose'
-  return 'Tie'
-}
 </script>
 
 <template>

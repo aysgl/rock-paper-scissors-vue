@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import type { ChoiceType, GameResultType } from '../../types/game.types'
-import type { ChoiceAPI } from '../../types/api.types'
 import GameChoice from './GameChoice.vue'
 import GameResult from './GameResult.vue'
 import { useGameStore } from '../../store/gameStore'
 import { useScoreStore } from '../../store/scoreStore'
+import { useGame } from '../../composables/useGame'
 
 const gameStore = useGameStore()
 const scoreStore = useScoreStore()
@@ -16,42 +15,7 @@ onMounted(() => {
   scoreStore.fetchScoreboard()
 })
 
-function getRandom(): ChoiceType {
-  const choices = gameStore?.choices.map((c: ChoiceAPI) => c?.id)
-  return choices?.[Math.floor(Math.random() * choices.length)] as ChoiceType
-}
-
-function handlePick(choice: ChoiceType) {
-  gameStore.userChoice = choice
-
-  const interval = setInterval(() => {
-    gameStore.houseChoice = getRandom()
-  }, 100)
-
-  setTimeout(() => {
-    clearInterval(interval)
-    gameStore.houseChoice = getRandom()
-
-    gameStore
-      .getResults(gameStore.userChoice as ChoiceType, gameStore.houseChoice as ChoiceType)
-      .then(async (result) => {
-        gameStore.gameResult = result as GameResultType
-
-        // Save game
-        await gameStore.savedGame(
-          gameStore.userChoice as ChoiceType,
-          gameStore.houseChoice as ChoiceType,
-          gameStore.gameResult as GameResultType,
-        )
-
-        // Update score
-        await scoreStore.updateScoreBoard(gameStore.gameResult as GameResultType)
-      })
-      .catch((error) => {
-        console.error('Error getting results:', error)
-      })
-  }, 2000)
-}
+const { handlePick } = useGame()
 </script>
 
 <template>
@@ -64,9 +28,9 @@ function handlePick(choice: ChoiceType) {
       <GameResult
         v-else
         key="step2"
-        :user-choice="gameStore.userChoice as ChoiceType"
-        :house-choice="gameStore.houseChoice as ChoiceType"
-        :result="gameStore.gameResult as GameResultType"
+        :user-choice="gameStore.userChoice!"
+        :house-choice="gameStore.houseChoice!"
+        :result="gameStore.gameResult!"
         :has-result="!!gameStore.gameResult"
         @play-again="gameStore.playAgain"
       />
