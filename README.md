@@ -39,7 +39,7 @@ Vue 3, TypeScript ve Pinia ile geliştirilmiş modern, interaktif Taş Kağıt M
 
 ```bash
 # Projeyi klonlayın
-git clone <repo-url>
+git clone https://github.com/aysgl/rock-paper-scissors-vue.git
 cd rock-paper-scissors-vue
 
 # Bağımlılıkları yükleyin
@@ -95,6 +95,10 @@ src/
 │       ├── LeaderBoard.vue
 │       ├── RulesModal.vue
 │       └── ScoreBoard.vue
+├── composables/      # Vue composable fonksiyonları
+│   └── useGame.ts    # Oyun mantığı composable'ı
+├── constants/        # Sabit değerler ve konfigürasyonlar
+│   └── gameIcons.ts  # Oyun ikonu mapping'leri
 ├── router/           # Vue Router konfigürasyonu
 ├── store/            # Pinia store'lar
 │   ├── gameStore.ts  # Oyun state'i ve mantığı
@@ -167,7 +171,8 @@ src/
 
 ## 🔌 API Endpoint'leri
 
-Base URL: `http://localhost:5001`
+**Local Development:** `http://localhost:5001`  
+**Production:** `https://rock-paper-scissors-api-hz7y.onrender.com`
 
 | Method | Endpoint          | Açıklama                       |
 | ------ | ----------------- | ------------------------------ |
@@ -198,9 +203,12 @@ Base URL: `http://localhost:5001`
 
 ### Ölçeklenebilirlik
 
-- Yeni seçenekler (lizard, spock, vb.) kolayca eklenebilir
-- Kurallar veritabanından dinamik yüklenir
-- Modüler komponent mimarisi
+- **Backend:** Kurallar ve seçenekler veritabanından dinamik yüklenir
+- **Yeni Seçenek Ekleme:** Lizard, Spock gibi yeni seçenekler için:
+  - `db.json`'a yeni choice ve rule eklenir
+  - SVG komponenti oluşturulur
+  - `game.types.ts` ve `gameIcons.ts` güncellenir
+- **Modüler Tasarım:** Komponent bazlı mimari kolay değişiklik sağlar
 
 ## 📜 Kullanılabilir Scriptler
 
@@ -216,13 +224,21 @@ npm run type-check # TypeScript tip kontrolü
 
 ## 🌍 Environment Variables
 
+### Local Development
+
 Root dizinde `.env` dosyası oluşturun:
 
 ```env
 VITE_API_URL=http://localhost:5001
 ```
 
-Production deployment için, hosting platformunuzda (Vercel, Netlify, vb.) environment variable'ı ayarlayın.
+### Production
+
+Vercel'de environment variable olarak ayarlanmış:
+
+```env
+VITE_API_URL=https://rock-paper-scissors-api-hz7y.onrender.com
+```
 
 ## 🏗 Mimari Kararlar
 
