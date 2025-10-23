@@ -73,28 +73,84 @@
       "houseChoice": "scissors",
       "result": "win",
       "timestamp": "2025-10-18T17:24:42.628Z"
+    },
+    {
+      "id": "155f",
+      "playerId": "1761209675137",
+      "playerChoice": "rock",
+      "houseChoice": "scissors",
+      "result": "win",
+      "timestamp": "2025-10-23T08:54:35.137Z"
+    },
+    {
+      "id": "399b",
+      "playerId": "1761210193380",
+      "playerChoice": "scissors",
+      "houseChoice": "rock",
+      "result": "lose",
+      "timestamp": "2025-10-23T09:03:13.380Z"
+    },
+    {
+      "id": "4603",
+      "playerId": "1761210353520",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T09:05:53.520Z"
+    },
+    {
+      "id": "2e93",
+      "playerId": "1761210440464",
+      "playerChoice": "scissors",
+      "houseChoice": "rock",
+      "result": "lose",
+      "timestamp": "2025-10-23T09:07:20.464Z"
+    },
+    {
+      "id": "486b",
+      "playerId": "1761210465040",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T09:07:45.040Z"
+    },
+    {
+      "id": "2b16",
+      "playerId": "1761210682122",
+      "playerChoice": "scissors",
+      "houseChoice": "paper",
+      "result": "win",
+      "timestamp": "2025-10-23T09:11:22.122Z"
+    },
+    {
+      "id": "e191",
+      "playerId": "1761212028785",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T09:33:48.785Z"
     }
   ],
   "scoreboard": [
     {
       "id": "fdswq4rqwerfads",
       "username": "Player",
-      "score": 27,
-      "gamesPlayed": 101,
-      "wins": 27,
-      "losses": 37,
-      "ties": 37,
-      "winRate": 27
+      "score": 28,
+      "gamesPlayed": 106,
+      "wins": 28,
+      "losses": 39,
+      "ties": 39,
+      "winRate": 26
     },
     {
       "id": "computer-ai",
       "username": "Computer",
-      "score": 37,
-      "gamesPlayed": 101,
-      "wins": 37,
-      "losses": 27,
-      "ties": 37,
-      "winRate": 37
+      "score": 39,
+      "gamesPlayed": 107,
+      "wins": 39,
+      "losses": 29,
+      "ties": 39,
+      "winRate": 36
     },
     {
       "id": "player-champion",

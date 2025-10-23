@@ -4,6 +4,7 @@ import { useScoreStore } from '../../store/scoreStore'
 import { useGameStore } from '../../store/gameStore'
 import BaseModal from './BaseModal.vue'
 import { useGame } from '../../composables/useGame'
+import { injectModal, MODAL_INJECTION_KEYS } from '../../composables/useProvideInject'
 
 interface Props {
   isOpen: boolean
@@ -15,25 +16,42 @@ defineProps<Props>()
 const scoreStore = useScoreStore()
 const gameStore = useGameStore()
 
+// Inject modal state from parent
+const leaderboardModal = injectModal(MODAL_INJECTION_KEYS.LEADERBOARD)
+
 const { getResultText } = useGame()
 
 const sortedLeaderboard = computed(() => {
   return [...scoreStore.score].sort((a, b) => b.score - a.score)
 })
 
+const getResultMessage = (result: string): string => {
+  switch (result) {
+    case 'win':
+      return '+1 Point! Keep going! 🚀'
+    case 'lose':
+      return 'Better luck next time! 💪'
+    case 'tie':
+      return 'No points this time'
+    default:
+      return ''
+  }
+}
+
 const resultClass = computed(() => {
-  if (gameStore.gameResult === 'win') return 'leaderboard__result--win'
-  if (gameStore.gameResult === 'lose') return 'leaderboard__result--lose'
-  return 'leaderboard__result--tie'
+  switch (gameStore.gameResult) {
+    case 'win':
+      return 'leaderboard__result--win'
+    case 'lose':
+      return 'leaderboard__result--lose'
+    case 'tie':
+      return 'leaderboard__result--tie'
+    default:
+      return ''
+  }
 })
 
-const emit = defineEmits<{
-  close: []
-}>()
-
-const closeModal = () => {
-  emit('close')
-}
+// No emit needed - using provide/inject pattern
 
 onMounted(async () => {
   await scoreStore.fetchScoreboard()
@@ -41,14 +59,12 @@ onMounted(async () => {
 </script>
 
 <template>
-  <BaseModal :isOpen="isOpen" size="large" title="Leaderboard" @close="closeModal">
+  <BaseModal :isOpen="isOpen" size="large" title="Leaderboard" @close="leaderboardModal.close">
     <!-- Result Banner -->
     <div class="w-full">
       <div v-if="showResult && gameStore.gameResult" :class="['leaderboard__result', resultClass]">
         <h3>{{ getResultText(gameStore.gameResult) }}</h3>
-        <p v-if="gameStore.gameResult === 'win'">+1 Point! Keep going! 🚀</p>
-        <p v-else-if="gameStore.gameResult === 'lose'">Better luck next time! 💪</p>
-        <p v-else>No points this time</p>
+        <p>{{ getResultMessage(gameStore.gameResult) }}</p>
       </div>
 
       <div class="leaderboard__table">

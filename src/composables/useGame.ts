@@ -28,27 +28,42 @@ export const useGame = () => {
         .then(async (result) => {
           gameStore.gameResult = result as GameResultType
 
-          // Save game
-          await gameStore.savedGame(
-            gameStore.userChoice as ChoiceType,
-            gameStore.houseChoice as ChoiceType,
-            gameStore.gameResult as GameResultType,
-          )
+          try {
+            // Save game (non-blocking if fails)
+            await gameStore.savedGame(
+              gameStore.userChoice as ChoiceType,
+              gameStore.houseChoice as ChoiceType,
+              gameStore.gameResult as GameResultType,
+            )
 
-          // Update score
-          await scoreStore.updateScoreBoard(gameStore.gameResult as GameResultType)
+            // Update score
+            await scoreStore.updateScoreBoard(gameStore.gameResult as GameResultType)
+          } catch (error) {
+            console.error('Error during game flow:', error)
+            // Error is already handled by stores, just log here
+          }
         })
         .catch((error) => {
           console.error('Error getting results:', error)
+          // Reset game state on error
+          gameStore.userChoice = null
+          gameStore.houseChoice = null
+          gameStore.gameResult = null
         })
     }, 2000)
   }
 
-  function getResultText(result?: string): string {
-    if (!result) return ''
-    if (result === 'win') return 'You Win'
-    if (result === 'lose') return 'You Lose'
-    return 'Tie'
+  function getResultText(result?: GameResultType): string {
+    switch (result) {
+      case 'win':
+        return 'You Win'
+      case 'lose':
+        return 'You Lose'
+      case 'tie':
+        return 'Tie'
+      default:
+        return ''
+    }
   }
 
   return { handlePick, getRandom, getResultText }

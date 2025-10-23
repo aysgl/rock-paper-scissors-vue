@@ -1,15 +1,19 @@
 :root {
-  /* Colors */
-  --rps-white: #ffffff;
-  --rps-black: #565468;
-  --rps-secondary: #2A45C2;
+  /* Colors - Using rgba for consistency */
+  --rps-white: rgba(255, 255, 255, 1);
+  --rps-black: rgba(86, 84, 104, 1);
+  --rps-text-dark: rgba(59, 66, 98, 1);
+  --rps-secondary: rgba(42, 69, 194, 1);
+  --rps-green: rgba(0, 189, 70, 1);
+  --rps-green-light: rgba(0, 189, 70, 0.2);
   --rps-rock-background: rgba(219, 46, 77, 1);
-  --rps-rock-shadow: #9D1634;
-  --rps-paper-background: rgb(70, 100, 244);
-  --rps-paper-shadow: #2A45C2;
+  --rps-rock-shadow: rgba(157, 22, 52, 1);
+  --rps-paper-background: rgba(70, 100, 244, 1);
+  --rps-paper-shadow: rgba(42, 69, 194, 1);
   --rps-scissors-background: rgba(235, 159, 14, 1);
-  --rps-scissors-shadow: #C76C1B;
-  --rps-inset-shadow: #BABFD4;
+  --rps-scissors-shadow: rgba(199, 108, 27, 1);
+  --rps-inset-shadow: rgba(186, 191, 212, 1);
+  --rps-error-background: rgba(255, 68, 68, 1);
   --rps-triangle-width: clamp(25px, 2vw, 30px);
   --rps-modal-background: radial-gradient(134.34% 134.34% at 50% 0%, rgba(31, 55, 87, 0.6) 0%, rgba(0, 0, 0, 0.7) 100%);
   --lead-logo-width: clamp(110px, 12vw, 260px);

@@ -1,11 +1,16 @@
 import { defineStore } from 'pinia'
 import type { LeaderboardAPI } from '../types/api.types'
 import type { GameResultType } from '../types/game.types'
+import type { ErrorState } from '../types/error.types'
 import { api } from '../api/api'
+import { updatePlayerStats } from '../utils/scoreHelpers'
+import { handleError } from '../utils/errorHandler'
 
 export const useScoreStore = defineStore('scoreStore', {
   state: () => ({
     score: [] as LeaderboardAPI[],
+    isLoading: false,
+    error: null as ErrorState | null,
   }),
 
   getters: {
@@ -15,54 +20,63 @@ export const useScoreStore = defineStore('scoreStore', {
 
   actions: {
     async fetchScoreboard() {
-      const { data } = await api.get('/scoreboard')
-      this.score = data
+      this.isLoading = true
+      this.error = null
+
+      try {
+        const { data } = await api.get('/scoreboard')
+        this.score = data
+      } catch (error) {
+        const apiError = handleError('fetchScoreboard', error, true)
+        this.error = {
+          hasError: true,
+          message: apiError.message,
+          code: apiError.code,
+        }
+        throw error
+      } finally {
+        this.isLoading = false
+      }
     },
 
     async updateScoreBoard(result: GameResultType) {
-      if (!this.score[0]) {
-        console.warn('No score data available')
-        return
-      }
-
-      const player = this.score.find((p) => p.username === 'Player')
-      const computer = this.score.find((p) => p.username === 'Computer')
-
-      if (!player || !computer) {
-        console.warn('No player or computer data available')
-        return
-      }
-
-      player.gamesPlayed += 1
-      computer.gamesPlayed += 1
-
-      if (result === 'win') {
-        player.wins += 1
-        player.score += 1
-        computer.losses += 1
-      } else if (result === 'lose') {
-        player.losses += 1
-        computer.wins += 1
-        computer.score += 1
-      } else if (result === 'tie') {
-        player.ties += 1
-        computer.ties += 1
-      }
-
-      player.winRate = Math.round((player.wins / player.gamesPlayed) * 100)
-      computer.winRate = Math.round((computer.wins / computer.gamesPlayed) * 100)
-
-      console.log('Update Player:', JSON.parse(JSON.stringify(player)))
-      console.log('Update Computer:', JSON.parse(JSON.stringify(computer)))
+      this.isLoading = true
+      this.error = null
 
       try {
-        await api.put(`/scoreboard/${player.id}`, player)
-        await api.put(`/scoreboard/${computer.id}`, computer)
+        if (!this.score[0]) {
+          throw new Error('No score data available')
+        }
+
+        const player = this.score.find((p) => p.username === 'Player')
+        const computer = this.score.find((p) => p.username === 'Computer')
+
+        if (!player || !computer) {
+          throw new Error('Player or computer data not found')
+        }
+
+        updatePlayerStats(player, computer, result)
+
+        console.log('Update Player:', JSON.parse(JSON.stringify(player)))
+        console.log('Update Computer:', JSON.parse(JSON.stringify(computer)))
+
+        await Promise.all([
+          api.put(`/scoreboard/${player.id}`, player),
+          api.put(`/scoreboard/${computer.id}`, computer),
+        ])
 
         await this.fetchScoreboard()
         console.log('Score updated successfully!')
       } catch (error) {
-        console.error('Failed to update score:', error)
+        const apiError = handleError('updateScoreBoard', error, true)
+        this.error = {
+          hasError: true,
+          message: apiError.message,
+          code: apiError.code,
+        }
+        throw error
+      } finally {
+        this.isLoading = false
       }
     },
   },
