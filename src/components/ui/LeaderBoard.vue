@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useScoreStore } from '../../store/scoreStore'
 import { useGameStore } from '../../store/gameStore'
-import BaseModal from './BaseModal.vue'
 import { useGame } from '../../composables/useGame'
-import { injectModal, MODAL_INJECTION_KEYS } from '../../composables/useProvideInject'
-
-interface Props {
-  isOpen: boolean
-  showResult?: boolean
-}
-
-defineProps<Props>()
 
 const scoreStore = useScoreStore()
 const gameStore = useGameStore()
 
-// Inject modal state from parent
-const leaderboardModal = injectModal(MODAL_INJECTION_KEYS.LEADERBOARD)
-
 const { getResultText } = useGame()
 
+const sortByWinRate = ref(false)
+
 const sortedLeaderboard = computed(() => {
-  return [...scoreStore.score].sort((a, b) => b.score - a.score)
+  const sorted = [...scoreStore.score]
+
+  if (sortByWinRate.value) {
+    return sorted.sort((a, b) => b.winRate - a.winRate)
+  }
+
+  return sorted.sort((a, b) => b.score - a.score)
 })
+
+// const toggleWinRate = () => {
+//  sortByWinRate.value = !sortByWinRate.value
+// }
 
 const getResultMessage = (result: string): string => {
   switch (result) {
@@ -51,54 +51,58 @@ const resultClass = computed(() => {
   }
 })
 
-// No emit needed - using provide/inject pattern
-
 onMounted(async () => {
   await scoreStore.fetchScoreboard()
 })
 </script>
 
 <template>
-  <BaseModal :isOpen="isOpen" size="large" title="Leaderboard" @close="leaderboardModal.close">
+  <div class="leaderboard-content w-full">
     <!-- Result Banner -->
-    <div class="w-full">
-      <div v-if="showResult && gameStore.gameResult" :class="['leaderboard__result', resultClass]">
-        <h3>{{ getResultText(gameStore.gameResult) }}</h3>
-        <p>{{ getResultMessage(gameStore.gameResult) }}</p>
-      </div>
-
-      <div class="leaderboard__table">
-        <table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Player</th>
-              <th>Score</th>
-              <th>Games</th>
-              <th>W/L/T</th>
-              <th>Win Rate</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(player, index) in sortedLeaderboard"
-              :key="player.id"
-              :class="{ 'leaderboard__row--current': player.username === 'Player' }"
-            >
-              <td class="leaderboard__rank">{{ index + 1 }}</td>
-              <td class="leaderboard__username">
-                {{ player.username === 'Player' ? 'YOU' : player.username }}
-              </td>
-              <td class="leaderboard__score">{{ player.score }}</td>
-              <td class="leaderboard__games">{{ player.gamesPlayed }}</td>
-              <td class="leaderboard__wlt">
-                {{ player.wins }}/{{ player.losses }}/{{ player.ties }}
-              </td>
-              <td class="leaderboard__winrate">{{ player.winRate }}%</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div v-if="gameStore.gameResult" :class="['leaderboard__result', resultClass]">
+      <h3>{{ getResultText(gameStore.gameResult) }}</h3>
+      <p>{{ getResultMessage(gameStore.gameResult) }}</p>
     </div>
-  </BaseModal>
+
+    <div class="leaderboard__table">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Player</th>
+            <th>Score</th>
+            <th>Games</th>
+            <th>W/L/T</th>
+            <th>
+              Win Rate
+              <!-- <BaseButton
+                  @click="toggleWinRate"
+                  style="padding: 0.2rem; width: 24px; height: 24px"
+                >
+                  {{ sortByWinRate ? 'score' : 'win rate' }}
+                </BaseButton> -->
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="(player, index) in sortedLeaderboard"
+            :key="player.id"
+            :class="{ 'leaderboard__row--current': player.username === 'Player' }"
+          >
+            <td class="leaderboard__rank">{{ index + 1 }}</td>
+            <td class="leaderboard__username">
+              {{ player.username === 'Player' ? 'YOU' : player.username }}
+            </td>
+            <td class="leaderboard__score">{{ player.score }}</td>
+            <td class="leaderboard__games">{{ player.gamesPlayed }}</td>
+            <td class="leaderboard__wlt">
+              {{ player.wins }}/{{ player.losses }}/{{ player.ties }}
+            </td>
+            <td class="leaderboard__winrate">{{ player.winRate }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>

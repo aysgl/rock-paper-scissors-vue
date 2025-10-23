@@ -17,14 +17,12 @@ import {
 const gameStore = useGameStore()
 const scoreStore = useScoreStore()
 
-// Modal management with provide/inject
 const rulesModal = useModal()
 const leaderboardModal = useModal()
 
 provideModal(MODAL_INJECTION_KEYS.RULES, rulesModal)
 provideModal(MODAL_INJECTION_KEYS.LEADERBOARD, leaderboardModal)
 
-// Error notification management
 const currentError = computed(() => scoreStore.error || gameStore.error)
 const { showNotification, closeNotification } = useErrorNotification(() => currentError.value)
 
@@ -39,7 +37,7 @@ provideErrorNotification({
   <main class="welcome fade">
     <ScoreBoard />
     <GameBoard />
-    <RulesModal :isOpen="rulesModal.isOpen.value" />
+    <RulesModal />
     <ErrorNotification />
   </main>
 </template>

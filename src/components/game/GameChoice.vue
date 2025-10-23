@@ -2,17 +2,11 @@
 import type { ChoiceType } from '../../types/game.types'
 import TriangleSvg from '../svg/TriangleSvg.vue'
 import { useGameStore } from '../../store/gameStore'
+import { useGame } from '../../composables/useGame'
 import { GAME_ICON_MAP } from '../../constants/gameIcons'
 
 const gameStore = useGameStore()
-
-const emit = defineEmits<{
-  pick: [choice: ChoiceType]
-}>()
-
-function handlePick(choice: ChoiceType) {
-  emit('pick', choice)
-}
+const { handlePick } = useGame()
 </script>
 
 <template>
@@ -28,7 +22,7 @@ function handlePick(choice: ChoiceType) {
       :class="['game__item', `game__item--${choice.id}`]"
       @click="handlePick(choice.id as ChoiceType)"
     >
-      <component :is="GAME_ICON_MAP[choice.id as ChoiceType]" color="#3B4262" />
+      <component :is="GAME_ICON_MAP[choice.id as ChoiceType]" />
     </div>
   </div>
 </template>

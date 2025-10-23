@@ -129,27 +129,251 @@
       "houseChoice": "scissors",
       "result": "tie",
       "timestamp": "2025-10-23T09:33:48.785Z"
+    },
+    {
+      "id": "8cfc",
+      "playerId": "1761214991435",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T10:23:11.435Z"
+    },
+    {
+      "id": "9c51",
+      "playerId": "1761215546317",
+      "playerChoice": "paper",
+      "houseChoice": "paper",
+      "result": "tie",
+      "timestamp": "2025-10-23T10:32:26.317Z"
+    },
+    {
+      "id": "a466",
+      "playerId": "1761215732751",
+      "playerChoice": "scissors",
+      "houseChoice": "rock",
+      "result": "lose",
+      "timestamp": "2025-10-23T10:35:32.751Z"
+    },
+    {
+      "id": "6fc9",
+      "playerId": "1761217996749",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T11:13:16.749Z"
+    },
+    {
+      "id": "3a8f",
+      "playerId": "1761244045793",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T18:27:25.793Z"
+    },
+    {
+      "id": "19c5",
+      "playerId": "1761246621057",
+      "playerChoice": "scissors",
+      "houseChoice": "paper",
+      "result": "win",
+      "timestamp": "2025-10-23T19:10:21.057Z"
+    },
+    {
+      "id": "b3c7",
+      "playerId": "1761246638705",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:10:38.705Z"
+    },
+    {
+      "id": "bfb2",
+      "playerId": "1761246958025",
+      "playerChoice": "scissors",
+      "houseChoice": "rock",
+      "result": "lose",
+      "timestamp": "2025-10-23T19:15:58.025Z"
+    },
+    {
+      "id": "cf06",
+      "playerId": "1761248207293",
+      "playerChoice": "scissors",
+      "houseChoice": "rock",
+      "result": "lose",
+      "timestamp": "2025-10-23T19:36:47.293Z"
+    },
+    {
+      "id": "f3d8",
+      "playerId": "1761248236498",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:37:16.498Z"
+    },
+    {
+      "id": "7b96",
+      "playerId": "1761248392517",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:39:52.517Z"
+    },
+    {
+      "id": "0715",
+      "playerId": "1761248405899",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:40:05.899Z"
+    },
+    {
+      "id": "f38a",
+      "playerId": "1761248416971",
+      "playerChoice": "rock",
+      "houseChoice": "paper",
+      "result": "lose",
+      "timestamp": "2025-10-23T19:40:16.971Z"
+    },
+    {
+      "id": "454b",
+      "playerId": "1761249271053",
+      "playerChoice": "scissors",
+      "houseChoice": "rock",
+      "result": "lose",
+      "timestamp": "2025-10-23T19:54:31.053Z"
+    },
+    {
+      "id": "a162",
+      "playerId": "1761249282756",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:54:42.756Z"
+    },
+    {
+      "id": "2a01",
+      "playerId": "1761249291802",
+      "playerChoice": "paper",
+      "houseChoice": "paper",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:54:51.802Z"
+    },
+    {
+      "id": "f067",
+      "playerId": "1761249297562",
+      "playerChoice": "paper",
+      "houseChoice": "paper",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:54:57.562Z"
+    },
+    {
+      "id": "6bdb",
+      "playerId": "1761249302620",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:55:02.620Z"
+    },
+    {
+      "id": "1f1d",
+      "playerId": "1761249307733",
+      "playerChoice": "rock",
+      "houseChoice": "paper",
+      "result": "lose",
+      "timestamp": "2025-10-23T19:55:07.733Z"
+    },
+    {
+      "id": "15ed",
+      "playerId": "1761249313014",
+      "playerChoice": "rock",
+      "houseChoice": "paper",
+      "result": "lose",
+      "timestamp": "2025-10-23T19:55:13.014Z"
+    },
+    {
+      "id": "f156",
+      "playerId": "1761249318689",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-23T19:55:18.689Z"
+    },
+    {
+      "id": "1ca4",
+      "playerId": "1761249323701",
+      "playerChoice": "rock",
+      "houseChoice": "scissors",
+      "result": "win",
+      "timestamp": "2025-10-23T19:55:23.701Z"
+    },
+    {
+      "id": "4bea",
+      "playerId": "1761249608440",
+      "playerChoice": "scissors",
+      "houseChoice": "rock",
+      "result": "lose",
+      "timestamp": "2025-10-23T20:00:08.440Z"
+    },
+    {
+      "id": "876c",
+      "playerId": "1761249622590",
+      "playerChoice": "scissors",
+      "houseChoice": "paper",
+      "result": "win",
+      "timestamp": "2025-10-23T20:00:22.590Z"
+    },
+    {
+      "id": "341b",
+      "playerId": "1761249629929",
+      "playerChoice": "paper",
+      "houseChoice": "rock",
+      "result": "win",
+      "timestamp": "2025-10-23T20:00:29.929Z"
+    },
+    {
+      "id": "ab25",
+      "playerId": "1761250393107",
+      "playerChoice": "rock",
+      "houseChoice": "paper",
+      "result": "lose",
+      "timestamp": "2025-10-23T20:13:13.107Z"
+    },
+    {
+      "id": "5907",
+      "playerId": "1761250398986",
+      "playerChoice": "rock",
+      "houseChoice": "scissors",
+      "result": "win",
+      "timestamp": "2025-10-23T20:13:18.986Z"
+    },
+    {
+      "id": "457b",
+      "playerId": "1761250492852",
+      "playerChoice": "paper",
+      "houseChoice": "rock",
+      "result": "win",
+      "timestamp": "2025-10-23T20:14:52.852Z"
     }
   ],
   "scoreboard": [
     {
       "id": "fdswq4rqwerfads",
       "username": "Player",
-      "score": 28,
-      "gamesPlayed": 106,
-      "wins": 28,
-      "losses": 39,
-      "ties": 39,
-      "winRate": 26
+      "score": 34,
+      "gamesPlayed": 134,
+      "wins": 34,
+      "losses": 48,
+      "ties": 52,
+      "winRate": 25
     },
     {
       "id": "computer-ai",
       "username": "Computer",
-      "score": 39,
-      "gamesPlayed": 107,
-      "wins": 39,
-      "losses": 29,
-      "ties": 39,
+      "score": 48,
+      "gamesPlayed": 135,
+      "wins": 48,
+      "losses": 35,
+      "ties": 52,
       "winRate": 36
     },
     {
