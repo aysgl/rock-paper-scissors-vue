@@ -12,6 +12,10 @@
   --rps-paper-shadow: rgba(42, 69, 194, 1);
   --rps-scissors-background: rgba(235, 159, 14, 1);
   --rps-scissors-shadow: rgba(199, 108, 27, 1);
+  --rps-lizard-background: rgba(131, 78, 227, 1);
+  --rps-lizard-shadow: rgba(95, 55, 168, 1);
+  --rps-spock-background: rgba(63, 183, 205, 1);
+  --rps-spock-shadow: rgba(45, 141, 171, 1);
   --rps-inset-shadow: rgba(186, 191, 212, 1);
   --rps-error-background: rgba(255, 68, 68, 1);
   --rps-triangle-width: clamp(25px, 2vw, 30px);
@@ -43,8 +47,8 @@
   --font-xl: clamp(42px, 8vw, 64px);
 
   /* Component sizes */
-  --item-size: clamp(130px, 25vw, 198px);
-  --item-border: clamp(12px, 2.5vw, 20px);
+  --item-size: clamp(100px, 25vw, 145px);
+  --item-border: clamp(10px, 2.5vw, 16px);
   --lead-height: clamp(90px, 15vw, 150px);
   --score-width: clamp(90px, 15vw, 150px);
   --score-height: clamp(90px, 15vw, 114px);

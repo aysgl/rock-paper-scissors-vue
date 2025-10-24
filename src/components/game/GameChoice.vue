@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { ChoiceType } from '../../types/game.types'
-import TriangleSvg from '../svg/TriangleSvg.vue'
 import { useGameStore } from '../../store/gameStore'
 import { useGame } from '../../composables/useGame'
 import { GAME_ICON_MAP } from '../../constants/gameIcons'
+import PentagonSvg from '../svg/PentagonSvg.vue'
 
 const gameStore = useGameStore()
 const { handlePick } = useGame()
@@ -11,8 +11,8 @@ const { handlePick } = useGame()
 
 <template>
   <div class="game__one">
-    <div class="game__triangle">
-      <TriangleSvg />
+    <div class="game__pentagon">
+      <PentagonSvg />
     </div>
 
     <!-- Dynamic rendering from database -->

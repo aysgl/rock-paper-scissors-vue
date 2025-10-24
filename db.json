@@ -11,26 +11,66 @@
     {
       "id": "scissors",
       "name": "Scissors"
+    },
+    {
+      "id": "lizard",
+      "name": "Lizard"
+    },
+    {
+      "id": "spock",
+      "name": "Spock"
     }
   ],
   "rules": [
     {
       "id": "rule-1",
       "winner": "rock",
-      "loser": "scissors",
-      "verb": "crushes"
+      "loser": "scissors"
     },
     {
       "id": "rule-2",
       "winner": "paper",
-      "loser": "rock",
-      "verb": "covers"
+      "loser": "rock"
     },
     {
       "id": "rule-3",
       "winner": "scissors",
-      "loser": "paper",
-      "verb": "cuts"
+      "loser": "paper"
+    },
+    {
+      "id": "rule-4",
+      "winner": "lizard",
+      "loser": "spock"
+    },
+    {
+      "id": "rule-5",
+      "winner": "spock",
+      "loser": "scissors"
+    },
+    {
+      "id": "rule-6",
+      "winner": "spock",
+      "loser": "rock"
+    },
+    {
+      "id": "rule-7",
+      "winner": "lizard",
+      "loser": "paper"
+    },
+    {
+      "id": "rule-8",
+      "winner": "lizard",
+      "loser": "rock"
+    },
+    {
+      "id": "rule-9",
+      "winner": "paper",
+      "loser": "spock"
+    },
+    {
+      "id": "rule-10",
+      "winner": "scissors",
+      "loser": "lizard"
     }
   ],
   "games": [
@@ -353,28 +393,196 @@
       "houseChoice": "rock",
       "result": "win",
       "timestamp": "2025-10-23T20:14:52.852Z"
+    },
+    {
+      "id": "9d05",
+      "playerId": "1761294446587",
+      "playerChoice": "rock",
+      "houseChoice": "spock",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:27:26.587Z"
+    },
+    {
+      "id": "5327",
+      "playerId": "1761294623034",
+      "playerChoice": "spock",
+      "houseChoice": "spock",
+      "result": "tie",
+      "timestamp": "2025-10-24T08:30:23.034Z"
+    },
+    {
+      "id": "c5cf",
+      "playerId": "1761294634605",
+      "playerChoice": "lizard",
+      "houseChoice": "spock",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:30:34.605Z"
+    },
+    {
+      "id": "0a54",
+      "playerId": "1761295171986",
+      "playerChoice": "paper",
+      "houseChoice": "lizard",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:39:31.986Z"
+    },
+    {
+      "id": "e59c",
+      "playerId": "1761295277490",
+      "playerChoice": "paper",
+      "houseChoice": "scissors",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:41:17.490Z"
+    },
+    {
+      "id": "dbde",
+      "playerId": "1761295315687",
+      "playerChoice": "rock",
+      "houseChoice": "spock",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:41:55.687Z"
+    },
+    {
+      "id": "7bb0",
+      "playerId": "1761295403293",
+      "playerChoice": "paper",
+      "houseChoice": "rock",
+      "result": "win",
+      "timestamp": "2025-10-24T08:43:23.293Z"
+    },
+    {
+      "id": "c22e",
+      "playerId": "1761295410525",
+      "playerChoice": "rock",
+      "houseChoice": "scissors",
+      "result": "win",
+      "timestamp": "2025-10-24T08:43:30.525Z"
+    },
+    {
+      "id": "d3b3",
+      "playerId": "1761295415937",
+      "playerChoice": "scissors",
+      "houseChoice": "scissors",
+      "result": "tie",
+      "timestamp": "2025-10-24T08:43:35.937Z"
+    },
+    {
+      "id": "ecab",
+      "playerId": "1761295476416",
+      "playerChoice": "lizard",
+      "houseChoice": "paper",
+      "result": "win",
+      "timestamp": "2025-10-24T08:44:36.416Z"
+    },
+    {
+      "id": "deea",
+      "playerId": "1761295598361",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-24T08:46:38.361Z"
+    },
+    {
+      "id": "3701",
+      "playerId": "1761295610234",
+      "playerChoice": "rock",
+      "houseChoice": "lizard",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:46:50.234Z"
+    },
+    {
+      "id": "9ba6",
+      "playerId": "1761295789877",
+      "playerChoice": "rock",
+      "houseChoice": "paper",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:49:49.877Z"
+    },
+    {
+      "id": "9aff",
+      "playerId": "1761295799796",
+      "playerChoice": "rock",
+      "houseChoice": "rock",
+      "result": "tie",
+      "timestamp": "2025-10-24T08:49:59.796Z"
+    },
+    {
+      "id": "56e0",
+      "playerId": "1761295807486",
+      "playerChoice": "rock",
+      "houseChoice": "spock",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:50:07.486Z"
+    },
+    {
+      "id": "0322",
+      "playerId": "1761295989951",
+      "playerChoice": "paper",
+      "houseChoice": "paper",
+      "result": "tie",
+      "timestamp": "2025-10-24T08:53:09.951Z"
+    },
+    {
+      "id": "0006",
+      "playerId": "1761296056656",
+      "playerChoice": "spock",
+      "houseChoice": "spock",
+      "result": "tie",
+      "timestamp": "2025-10-24T08:54:16.656Z"
+    },
+    {
+      "id": "521b",
+      "playerId": "1761296064979",
+      "playerChoice": "lizard",
+      "houseChoice": "paper",
+      "result": "win",
+      "timestamp": "2025-10-24T08:54:24.979Z"
+    },
+    {
+      "id": "43f1",
+      "playerId": "1761296086649",
+      "playerChoice": "spock",
+      "houseChoice": "rock",
+      "result": "win",
+      "timestamp": "2025-10-24T08:54:46.649Z"
+    },
+    {
+      "id": "995a",
+      "playerId": "1761296099697",
+      "playerChoice": "rock",
+      "houseChoice": "spock",
+      "result": "lose",
+      "timestamp": "2025-10-24T08:54:59.697Z"
+    },
+    {
+      "id": "47bb",
+      "playerId": "1761300896620",
+      "playerChoice": "scissors",
+      "houseChoice": "spock",
+      "result": "lose",
+      "timestamp": "2025-10-24T10:14:56.620Z"
     }
   ],
   "scoreboard": [
     {
       "id": "fdswq4rqwerfads",
       "username": "Player",
-      "score": 34,
-      "gamesPlayed": 134,
-      "wins": 34,
-      "losses": 48,
-      "ties": 52,
+      "score": 39,
+      "gamesPlayed": 155,
+      "wins": 39,
+      "losses": 58,
+      "ties": 58,
       "winRate": 25
     },
     {
       "id": "computer-ai",
       "username": "Computer",
-      "score": 48,
-      "gamesPlayed": 135,
-      "wins": 48,
-      "losses": 35,
-      "ties": 52,
-      "winRate": 36
+      "score": 58,
+      "gamesPlayed": 156,
+      "wins": 58,
+      "losses": 40,
+      "ties": 58,
+      "winRate": 37
     },
     {
       "id": "player-champion",

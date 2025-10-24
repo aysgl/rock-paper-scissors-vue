@@ -40,7 +40,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    min-height: clamp(300px, 50vw, 450px);
+    min-height: clamp(350px, 50vw, 450px);
     transition: all 0.2s ease-in-out;
   }
 
@@ -54,19 +54,19 @@
     background: var(--rps-score-background);
     cursor: pointer;
     transition: box-shadow 0.2s;
-    padding: 30px;
+    padding: clamp(20px, 4vw, 30px);
   }
 
   &__item--paper {
     border: var(--item-border) solid var(--rps-paper-background);
     box-shadow:
-      0 5px 0px 3px var(--rps-paper-shadow),
-      inset 0px 5px 0 3px var(--rps-inset-shadow);
+      0 3px 0px 2px var(--rps-paper-shadow),
+      inset 0px 3px 0 2px var(--rps-inset-shadow);
 
     &:hover {
       box-shadow:
-        0 5px 0px 3px var(--rps-paper-shadow),
-        inset 0px 5px 0 3px var(--rps-inset-shadow),
+        0 3px 0px 2px var(--rps-paper-shadow),
+        inset 0px 3px 0 2px var(--rps-inset-shadow),
         0 0 0 clamp(15px, 3vw, 25px) rgba(255, 255, 255, 0.1);
     }
   }
@@ -74,13 +74,13 @@
   &__item--scissors {
     border: var(--item-border) solid var(--rps-scissors-background);
     box-shadow:
-      0 5px 0px 3px var(--rps-scissors-shadow),
-      inset 0px 5px 0 3px var(--rps-inset-shadow);
+      0 3px 0px 2px var(--rps-scissors-shadow),
+      inset 0px 3px 0 2px var(--rps-inset-shadow);
 
     &:hover {
       box-shadow:
-        0 5px 0px 3px var(--rps-scissors-shadow),
-        inset 0px 5px 0 3px var(--rps-inset-shadow),
+        0 3px 0px 2px var(--rps-scissors-shadow),
+        inset 0px 3px 0 2px var(--rps-inset-shadow),
         0 0 0 clamp(15px, 3vw, 25px) rgba(255, 255, 255, 0.1);
     }
   }
@@ -88,13 +88,41 @@
   &__item--rock {
     border: var(--item-border) solid var(--rps-rock-background);
     box-shadow:
-      0 5px 0px 3px var(--rps-rock-shadow),
-      inset 0px 5px 0 3px var(--rps-inset-shadow);
+      0 3px 0px 2px var(--rps-rock-shadow),
+      inset 0px 3px 0 2px var(--rps-inset-shadow);
 
     &:hover {
       box-shadow:
-        0 5px 0px 3px var(--rps-rock-shadow),
+        0 3px 0px 2px var(--rps-rock-shadow),
+        inset 0px 3px 0 2px var(--rps-inset-shadow),
+        0 0 0 clamp(15px, 3vw, 25px) rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__item--lizard {
+    border: var(--item-border) solid var(--rps-lizard-background);
+    box-shadow:
+      0 3px 0px 2px var(--rps-lizard-shadow),
+      inset 0px 3px 0 2px var(--rps-inset-shadow);
+
+    &:hover {
+      box-shadow:
+        0 3px 0px 2px var(--rps-lizard-shadow),
         inset 0px 5px 0 3px var(--rps-inset-shadow),
+        0 0 0 clamp(15px, 3vw, 25px) rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__item--spock {
+    border: var(--item-border) solid var(--rps-spock-background);
+    box-shadow:
+      0 3px 0px 2px var(--rps-spock-shadow),
+      inset 0px 3px 0 2px var(--rps-inset-shadow);
+
+    &:hover {
+      box-shadow:
+        0 3px 0px 2px var(--rps-spock-shadow),
+        inset 0px 3px 0 2px var(--rps-inset-shadow),
         0 0 0 clamp(15px, 3vw, 25px) rgba(255, 255, 255, 0.1);
     }
   }
@@ -110,19 +138,44 @@
   }
 
   &__one &__item--paper {
-    top: 0;
-    right: clamp(35px, 5vw, 50px);
+    top: 30%;
+    left: 80px;
   }
 
   &__one &__item--scissors {
     top: 0;
-    left: clamp(35px, 5vw, 50px);
+    left: 0px;
+    transform: translateX(-50%);
+  }
+
+  &__one &__item--scissors {
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__one &__item--paper {
+    top: 28%;
+    left: 0;
+    transform: translate(60%);
+  }
+
+  &__one &__item--spock {
+    top: 28%;
+    right: 0;
+    transform: translateX(-60%);
+  }
+
+  &__one &__item--lizard {
+    bottom: 0;
+    right: 0;
+    transform: translateX(-15%);
   }
 
   &__one &__item--rock {
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: translateX(15%);
   }
 
   &__triangle {
@@ -132,6 +185,22 @@
     transform: translate(-50%, -40%);
     width: clamp(200px, 30vw, 254px);
     height: auto;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__pentagon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(280px, 30vw, 360px);
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
 
     svg {
       width: 100%;
@@ -155,6 +224,7 @@
     /* When result is shown, expand to 3 columns */
     &--expanded {
       max-width: 100%;
+      gap: 0;
       grid-template-columns: 1fr 1fr;
       grid-template-areas:
         "you house"

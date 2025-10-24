@@ -119,6 +119,14 @@
   animation: pulse-shadow-rock 1.5s ease-in-out infinite;
 }
 
+.game__item--lizard.active {
+  animation: pulse-shadow-lizard 1.5s ease-in-out infinite;
+}
+
+.game__item--spock.active {
+  animation: pulse-shadow-spock 1.5s ease-in-out infinite;
+}
+
 /* Modal Animations */
 .modal-enter-active,
 .modal-leave-active {

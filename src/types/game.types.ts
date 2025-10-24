@@ -1,4 +1,4 @@
-export type ChoiceType = 'paper' | 'scissors' | 'rock'
+export type ChoiceType = 'paper' | 'scissors' | 'rock' | 'lizard' | 'spock'
 export type GameResultType = 'win' | 'lose' | 'tie'
 export type GameState = 'idle' | 'playing' | 'animating' | 'result'
 

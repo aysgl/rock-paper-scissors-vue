@@ -15,7 +15,6 @@ export interface RuleAPI {
   id: string
   winner: ChoiceType
   loser: ChoiceType
-  verb: string
 }
 
 /**
