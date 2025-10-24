@@ -4,7 +4,7 @@ Vue 3, TypeScript ve Pinia ile geliştirilmiş modern, interaktif Taş Kağıt M
 
 ## 🚀 Demo
 
-**Canlı Demo:** [https://rock-paper-scissors-vue-seven.vercel.app/](https://rock-paper-scissors-vue-seven.vercel.app/)
+**Canlı Demo:** [https://rock-paper-scissors-vue-six.vercel.app/](https://rock-paper-scissors-vue-six.vercel.app/)
 
 ## ✨ Özellikler
 

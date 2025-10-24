@@ -561,6 +561,14 @@
       "houseChoice": "spock",
       "result": "lose",
       "timestamp": "2025-10-24T10:14:56.620Z"
+    },
+    {
+      "id": "f578",
+      "playerId": "1761302570301",
+      "playerChoice": "paper",
+      "houseChoice": "scissors",
+      "result": "lose",
+      "timestamp": "2025-10-24T10:42:50.301Z"
     }
   ],
   "scoreboard": [
@@ -568,21 +576,21 @@
       "id": "fdswq4rqwerfads",
       "username": "Player",
       "score": 39,
-      "gamesPlayed": 155,
+      "gamesPlayed": 156,
       "wins": 39,
-      "losses": 58,
+      "losses": 59,
       "ties": 58,
       "winRate": 25
     },
     {
       "id": "computer-ai",
       "username": "Computer",
-      "score": 58,
-      "gamesPlayed": 156,
-      "wins": 58,
+      "score": 59,
+      "gamesPlayed": 157,
+      "wins": 59,
       "losses": 40,
       "ties": 58,
-      "winRate": 37
+      "winRate": 38
     },
     {
       "id": "player-champion",
