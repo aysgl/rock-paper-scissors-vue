@@ -59,8 +59,8 @@
     },
     {
       "id": "rule-8",
-      "winner": "lizard",
-      "loser": "rock"
+      "winner": "rock",
+      "loser": "lizard"
     },
     {
       "id": "rule-9",
