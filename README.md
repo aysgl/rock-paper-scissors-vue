@@ -208,7 +208,7 @@ Root dizinde `.env` dosyası oluşturun:
 
 ```env
 VITE_API_URL=http://localhost:5001  # Local development
-# VITE_API_URL=https://rock-paper-scissors-api-hz7y.onrender.com  # Production
+VITE_API_URL=https://rock-paper-scissors-api-hz7y.onrender.com  # Production
 ```
 
 ## 🏗 Mimari Kararlar
